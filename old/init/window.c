@@ -6,7 +6,7 @@
 /*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:14:03 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/11/07 00:34:44 by liurne           ###   ########.fr       */
+/*   Updated: 2023/09/03 18:52:12 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,7 @@ int	init_window(t_data *sl, int win_w, int win_h)
 	new_img(sl, &(sl->win.renderer), sl->win.w, sl->win.h);
 	if (!sl->win.renderer.img)
 		error(sl, ERR_IMG);
+	sl->need_pet = 250;
+	sl->nb_dogs = 4;
 	return (0);
 }

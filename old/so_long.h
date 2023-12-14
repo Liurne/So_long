@@ -6,7 +6,7 @@
 /*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:37:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/11/10 15:59:33 by liurne           ###   ########.fr       */
+/*   Updated: 2023/11/07 00:30:37 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define ERR_IMG "Couldn't creater an image"
 # define WIN_W 1280
 # define WIN_H 768
+# define NB_ENTITIES 51
+# define NB_WOLF 1
 # define NB_DOG 50
 # define C_NIGHT 0xFF001835
 
@@ -77,17 +79,18 @@ typedef struct s_entity
 {
 	int		id;
 	t_mob	type;
-	int		alive;
 	t_vec	pos;
 	t_vec	tpos;
 	int		w;
 	int		h;
 	int		dir;
 	size_t	nb_mv;
-	size_t	dist;
+	size_t	d;
 	int		delay;
 	int		inmove;
+	int		alive;
 	int		animation;
+	t_img	tex[5][4];
 }	t_entity;
 
 typedef struct s_keyboard
@@ -103,14 +106,15 @@ typedef struct s_data
 	t_wins		win;
 	t_keyboard	keys;
 	t_map		map;
+	t_entity	entities[NB_ENTITIES + 1];
+	t_entity	pl;
+	t_entity	dog[NB_DOG];
+	t_entity	wolf;
+	int			nb_dogs;
 	size_t		nb_case;
 	size_t		nb_col;
-	t_entity	entities[NB_DOG + 2];
-	t_img		tex_pl[5][4];
-	t_img		tex_dog[5][4];
-	t_img		tex_wolf[5][4];
-	int			nb_dogs;
 	int			trans;
+	int			need_pet;
 	int			show_hitbox;
 	int			time;
 }	t_data;

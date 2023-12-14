@@ -6,7 +6,7 @@
 /*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 03:08:41 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/11/07 01:07:49 by liurne           ###   ########.fr       */
+/*   Updated: 2023/08/20 14:23:20 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ static void	wich_tile(t_data *sl, int x, int y)
 	else if (get_tile(sl, x / 128, y / 128) == 'I')
 		put_pixelmap(&(sl->map), x, y, 53);
 	else if (get_tile(sl, x / 128, y / 128) == 'S')
-		put_pixelmap(&(sl->map), x, y, 52);
-	else if (get_tile(sl, x / 128, y / 128) == 'F')
 		put_pixelmap(&(sl->map), x, y, 54);
 	else if (get_tile(sl, x / 128, y / 128) == 'c')
 		put_pixelmap(&(sl->map), x, y, 55);

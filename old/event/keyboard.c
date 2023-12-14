@@ -6,7 +6,7 @@
 /*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:45:37 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/11/07 01:37:34 by liurne           ###   ########.fr       */
+/*   Updated: 2023/09/03 18:06:47 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,15 @@ static void	key_press_op(int keycode, t_data *sl)
 			sl->show_hitbox = 1;
 	}
 	if (keycode == 110)
-		sl->entities[0].nb_mv = sl->nb_case;
-	if (keycode == 65451 && sl->nb_dogs < NB_DOG && sl->entities[0].nb_mv < sl->nb_case)
+		sl->pl.nb_mv = sl->nb_case;
+	if (keycode == 65451 && sl->nb_dogs < NB_DOG && sl->pl.nb_mv < sl->nb_case)
 	{
-		sl->entities[2 + sl->nb_dogs].alive = 1;
+		sl->dog[sl->nb_dogs].alive = 1;
 		sl->nb_dogs++;
 	}
-	if (keycode == 65453 && sl->nb_dogs > 0 && sl->entities[0].nb_mv < sl->nb_case)
+	if (keycode == 65453 && sl->nb_dogs > 0 && sl->pl.nb_mv < sl->nb_case)
 	{
-		sl->entities[2 + sl->nb_dogs].alive = 0;
-		sl->entities[2 + sl->nb_dogs].inmove = 0;
+		sl->dog[sl->nb_dogs].alive = 0;
 		sl->nb_dogs--;
 	}
 }
