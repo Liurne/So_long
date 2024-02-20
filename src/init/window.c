@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:14:03 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/20 17:46:59 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/20 18:09:50 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,5 @@ int	init_window(t_data *sl, int win_w, int win_h)
 	new_img(sl, &(sl->win.renderer), sl->win.w, sl->win.h);
 	if (!sl->win.renderer.img)
 		error(sl, ERR_IMG);
-	sl->need_pet = 250;
-	sl->nb_dogs = 4;
 	return (0);
 }

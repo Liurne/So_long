@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 15:35:48 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/20 17:30:23 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/20 18:08:27 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	entity_collision(t_entity *e1, t_entity *e2)
 
 static int	collision_action(t_data *sl, t_entity *e, int x, int y)
 {
-	if (!e->id)
+	if (e->type == PLAYER)
 	{
 		if (get_tile(sl, x, y) == 'C')
 		{
@@ -50,10 +50,10 @@ static int	collision_action(t_data *sl, t_entity *e, int x, int y)
 			if (get_tile(sl, sl->map.end.x / 128, sl->map.end.y / 128) == 'E')
 				set_tile(sl, sl->map.end.x / 128, sl->map.end.y / 128, 'I');
 			if (!sl->nb_col)
-				set_tile(sl, sl->map.end.x / 128, sl->map.end.y / 128, 'S');
+				set_tile(sl, sl->map.end.x / 128, sl->map.end.y / 128, 'F');
 			reload_tile_img(sl, sl->map.end.x, sl->map.end.y);
 		}
-		if (get_tile(sl, x, y) == 'S')
+		if (get_tile(sl, x, y) == 'F')
 		{
 			ft_putstr_fd("You Won !!\n", 1);
 			close_window(sl);

@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:45:37 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/20 17:30:55 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/20 18:32:38 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,7 @@ static void	key_press_op(int keycode, t_data *sl)
 			sl->show_hitbox = 1;
 	}
 	if (keycode == 110)
-		sl->pl.nb_mv = sl->nb_case;
-	if (keycode == 65451 && sl->nb_dogs < NB_DOG && sl->pl.nb_mv < sl->nb_case)
-	{
-		sl->dog[sl->nb_dogs].alive = 1;
-		sl->nb_dogs++;
-	}
-	if (keycode == 65453 && sl->nb_dogs > 0 && sl->pl.nb_mv < sl->nb_case)
-	{
-		sl->dog[sl->nb_dogs].alive = 0;
-		sl->nb_dogs--;
-	}
+		sl->entities[0].nb_mv = sl->nb_case;
 }
 
 int	key_press(int keycode, t_data *sl)

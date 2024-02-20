@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 03:08:41 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/20 17:43:19 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/20 18:28:45 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,16 @@ static void	wich_tile(t_data *sl, int x, int y)
 		else
 			put_pixelmap(&(sl->map), x, y, 4);
 	}
-	else if (get_tile(sl, x / 128, y / 128) == 'E')
-		put_pixelmap(&(sl->map), x, y, 52);
 	else if (get_tile(sl, x / 128, y / 128) == 'C')
 		put_pixelmap(&(sl->map), x, y, 56);
 	else if (get_tile(sl, x / 128, y / 128) == 'I')
 		put_pixelmap(&(sl->map), x, y, 53);
-	else if (get_tile(sl, x / 128, y / 128) == 'S')
+	else if (get_tile(sl, x / 128, y / 128) == 'E')
+		put_pixelmap(&(sl->map), x, y, 52);
+	else if (get_tile(sl, x / 128, y / 128) == 'F')
 		put_pixelmap(&(sl->map), x, y, 54);
 	else if (get_tile(sl, x / 128, y / 128) == 'c')
 		put_pixelmap(&(sl->map), x, y, 55);
-		
 }
 
 void	reload_tile_img(t_data *sl, int x, int y)

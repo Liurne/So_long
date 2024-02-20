@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:09:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/20 17:10:51 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/20 18:44:35 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 # define ERR_IMG "Couldn't creater an image"
 # define WIN_W 1280
 # define WIN_H 768
-# define NB_DOG 50
 # define C_NIGHT 0xFF001835
 
 typedef struct s_img
@@ -61,25 +60,34 @@ typedef struct s_map
 	int		w;
 	int		h;
 	t_vec	pos;
+	t_vec	start;
 	t_vec	end;
 	t_img	img;
 	t_img	tex[57];
 }	t_map;
 
+typedef enum e_mob
+{
+	PLAYER,
+	DOG,
+	WOLF
+}	t_mob;
+
 typedef struct s_entity
 {
 	int		id;
+	t_mob	type;
+	int		alive;
 	t_vec	pos;
 	t_vec	tpos;
 	int		w;
 	int		h;
 	int		dir;
 	size_t	nb_mv;
-	size_t	d;
+	size_t	dist;
+	int		delay;
 	int		inmove;
-	int		alive;
 	int		animation;
-	t_img	tex[5][4];
 }	t_entity;
 
 typedef struct s_keyboard
@@ -95,14 +103,15 @@ typedef struct s_data
 	t_wins		win;
 	t_keyboard	keys;
 	t_map		map;
+	size_t		nb_tile;
+	size_t		nb_dogs;
 	t_entity	pl;
-	t_entity	dog[NB_DOG];
 	t_entity	wolf;
-	int			nb_dogs;
-	size_t		nb_case;
-	size_t		nb_col;
+	t_entity	*entities;
+	t_img		tex_pl[5][4];
+	t_img		tex_dog[5][4];
+	t_img		tex_wolf[5][4];
 	int			trans;
-	int			need_pet;
 	int			show_hitbox;
 	int			time;
 }	t_data;

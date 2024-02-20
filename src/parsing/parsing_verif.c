@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:34:36 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/20 17:31:29 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/20 18:32:06 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ static int	parcour_map(t_data *sl)
 		while (++j < sl->map.h)
 		{
 			c = get_tile(sl, i, j);
-			if (c != 'E' && c != 'C' && c != 'P' && c != '1' && c != '0')
+			if (c != 'C' && c != 'P' && c != '1' && c != '0'
+					&& c != 'E')
 				return (0);
 			if (i == sl->map.w - 1 || i == 0 || j == sl->map.h - 1 || j == 0)
 				if (c != '1')
@@ -53,26 +54,28 @@ static int	parcour_map(t_data *sl)
 
 static int	verif_count(t_data *sl)
 {
-	int	e;
 	int	p;
+	int	e;
 	int	i;
 
-	e = 0;
 	p = 0;
-	i = 0;
-	while (sl->map.map[i])
+	e = 0;
+	i = -1;
+	while (sl->map.map[++i])
 	{
-		if (sl->map.map[i] == 'E')
-			e++;
 		if (sl->map.map[i] == 'P')
 			p++;
+		if (sl->map.map[i] == 'E')
+			e++;
 		if (sl->map.map[i] == 'C')
 			sl->nb_col++;
 		if (sl->map.map[i] == 'C' || sl->map.map[i] == '0')
+		{
+			sl->nb_dogs++;
 			sl->nb_case++;
-		i++;
+		}
 	}
-	if (e != 1 || p != 1 || sl->nb_col < 1)
+	if (p != 1 || e != 1 || sl->nb_col < 1)
 		return (0);
 	return (1);
 }
@@ -102,7 +105,7 @@ int	verif_map(t_data *sl)
 	sl->map.pos.x = 0;
 	sl->map.pos.y = 0;
 	init_pos(sl);
-	recu_finder(sl, tmp, sl->pl.pos.x / 128, sl->pl.pos.y / 128);
+	recu_finder(sl, tmp, sl->entities[0].pos.x / 128, sl->entities[0].pos.y / 128);
 	if (is_still(tmp))
 		return (free(tmp), 0);
 	complete_border(sl, 0, 0);
