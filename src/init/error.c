@@ -6,11 +6,11 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:04:42 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/04/27 14:36:17 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:31:04 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	error(t_data *sl, char *msg)
 {

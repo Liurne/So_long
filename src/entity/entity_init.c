@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   entity_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 16:03:02 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/08/21 18:14:07 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:30:19 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 static void	init_cam(t_data *sl)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   world_img.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 03:08:41 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/08/20 14:23:20 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:43:19 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 static void	wich_tile(t_data *sl, int x, int y)
 {

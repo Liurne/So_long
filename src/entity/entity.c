@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   entity.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 15:35:48 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/09/03 16:35:13 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:30:23 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	entity_collision(t_entity *e1, t_entity *e2)
 {

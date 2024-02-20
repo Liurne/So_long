@@ -6,11 +6,11 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:23:38 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/05/04 16:28:16 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:32:01 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	ft_strber(const char *haystack)
 {

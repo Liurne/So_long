@@ -6,11 +6,11 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:05:08 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/04/27 14:05:24 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:31:57 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {

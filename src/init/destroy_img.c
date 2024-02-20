@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   destroy_img.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 14:25:14 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/08/21 17:32:04 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:31:01 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 static void	destroy_img_pl(t_data *sl)
 {

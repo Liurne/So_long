@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:14:03 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/09/03 18:52:12 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:46:59 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	new_img(t_data *sl, t_img *img, int w, int h)
 {
 	img->img = mlx_new_image(sl->win.mlx, w, h);
+	img->img_h = h;
+	img->img_w = w;
 	if (!img->img)
 		error(sl, ERR_IMG);
 	img->addr = mlx_get_data_addr(img->img, &(img->bits_per_pixel),

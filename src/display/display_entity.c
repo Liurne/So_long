@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   display_entity.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:15:17 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/09/03 17:43:53 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:29:55 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 static void	display_hitbox(t_data *sl, t_entity *e)
 {

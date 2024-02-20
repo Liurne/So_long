@@ -6,11 +6,11 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 22:42:09 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/05/03 18:06:09 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:31:45 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 static void	ft_recurs_it(long int n, char *res, int l)
 {

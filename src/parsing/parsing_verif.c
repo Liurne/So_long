@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_verif.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:34:36 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/08/21 17:48:21 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:31:29 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 static int	verif_map_size(t_data *sl)
 {

@@ -6,11 +6,11 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:56:05 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/04/27 12:56:41 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:32:14 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 size_t	ft_strlen(const char *str)
 {

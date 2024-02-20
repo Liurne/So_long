@@ -3,29 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   display_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 17:52:39 by liurne            #+#    #+#             */
-/*   Updated: 2023/09/03 18:52:49 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:44:34 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	put_pixel(t_img *img, int x, int y, int color)
 {
-	char	*dst;
-
-	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
+	if (x < 0 || x >= img->img_w || y < 0 || y >= img->img_h)
+		return ;
+	((int *)img->addr)[y * (img->line_length >> 2) + x] = color;
 }
 
 int	get_pixel(t_img *img, int x, int y)
 {
-	char	*dst;
-
-	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
-	return (*(int *)dst);
+	if (x < 0 || x >= img->img_w || y < 0 || y >= img->img_h)
+		return (0);
+	return (((int *)img->addr)[y * (img->line_length >> 2) + x]);
 }
 
 int	transparence(int c1, int c2, int t)

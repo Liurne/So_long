@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   world.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:43:59 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/08/21 16:36:45 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:43:23 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 char	get_tile(t_data *sl, int x, int y)
 {

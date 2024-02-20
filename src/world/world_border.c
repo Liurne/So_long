@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   world_border.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 03:32:30 by liurne            #+#    #+#             */
-/*   Updated: 2023/08/21 16:20:26 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:43:14 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 static int	how_many_border(t_data *sl, int x, int y)
 {

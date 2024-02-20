@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   wolf.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:33:33 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/09/03 18:41:39 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:30:34 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 static int	wolf_in_wall(t_data *sl, t_entity *e, int x, int y)
 {

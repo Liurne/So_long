@@ -6,11 +6,11 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:21:35 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/05/03 18:10:33 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:32:10 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 char	*ft_strjoin(char *s1, char *s2)
 {

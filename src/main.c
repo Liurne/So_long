@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:54:37 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/09/03 19:04:05 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:32:23 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "src/so_long.h"
+#include "so_long.h"
 
 int	main(int ac, char **av)
 {

@@ -6,11 +6,11 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:55:03 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/04/27 12:55:32 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:31:37 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	ft_bzero(void *s, size_t n)
 {

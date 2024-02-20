@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   dog.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:58:03 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/09/03 16:39:53 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/20 17:30:13 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 static int	move_dog(t_data *sl, t_entity *e, int x, int y)
 {

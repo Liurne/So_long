@@ -6,11 +6,11 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:20:55 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/08/13 15:50:26 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:31:21 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 static char	*read_file(int fd, char *str)
 {

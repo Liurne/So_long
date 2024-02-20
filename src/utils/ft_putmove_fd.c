@@ -6,11 +6,11 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 14:57:52 by jcoquard          #+#    #+#             */
-/*   Updated: 2023/05/03 15:38:39 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:31:50 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	ft_putmove_fd(int nb_move, int fd)
 {
