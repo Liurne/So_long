@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:29:51 by liurne            #+#    #+#             */
-/*   Updated: 2024/02/20 18:36:17 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/22 18:05:33 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ static void	update_night(t_data *sl)
 {
 	int	i;
 
-	if (sl->trans < 80)
-		sl->trans = (int)(((((float)sl->entities[0].nb_mv
-					/ (float)(sl->nb_case)) * 4) / 5) * 100);
-	if (sl->trans >= 80)
+	if (sl->night < 80)
+		sl->night = (int)(((((float)sl->pl.nb_mv
+					/ (float)(sl->nb_tile)) * 4) / 5) * 100);
+	if (sl->night >= 80)
 	{
 		sl->entities[0].delay = 250;
 		sl->entities[1].alive = 1;

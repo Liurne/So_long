@@ -6,7 +6,7 @@
 #    By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 17:47:33 by jcoquard          #+#    #+#              #
-#    Updated: 2024/02/20 17:45:26 by jcoquard         ###   ########.fr        #
+#    Updated: 2024/02/22 18:04:38 by jcoquard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,6 @@ DIR_SRCS		= src/
 
 DIR_UTILS		= ${DIR_SRCS}utils/
 
-DIR_GARBAGE		= ${DIR_UTILS}garbage_collector/
-
 DIR_CORE		= ${DIR_SRCS}core/
 
 DIR_RENDERER	= ${DIR_SRCS}renderer/
@@ -39,6 +37,8 @@ DIR_RENDERER	= ${DIR_SRCS}renderer/
 DIR_EVENT		= ${DIR_SRCS}event/
 
 DIR_PARS		= ${DIR_SRCS}parsing/
+
+DIR_MAP			= ${DIR_SRCS}map/
 
 DIR_MLX			= minilibx/
 
@@ -66,37 +66,13 @@ END			= \033[0m
 
 HEADER	= incl/
 
-SRCS	=	src/main.c \
-			src/utils/ft_bzero.c \
-			src/utils/ft_strlen.c \
-			src/utils/ft_strdup.c \
-			src/utils/ft_putstr_fd.c \
-			src/utils/ft_putnbr_fd.c \
-			src/utils/ft_strjoin.c \
-			src/utils/ft_strber.c \
-			src/utils/ft_putmove_fd.c \
-			src/utils/ft_calloc.c \
-			src/utils/ft_itoa.c \
-			src/init/window.c \
-			src/init/load_img.c \
-			src/init/destroy_img.c \
-			src/init/error.c \
-			src/parsing/parsing_map.c \
-			src/parsing/parsing_verif.c \
-			src/parsing/parsing_tools.c \
-			src/world/world.c \
-			src/world/world_img.c \
-			src/world/world_border.c \
-			src/entity/entity.c \
-			src/entity/entity_init.c \
-			src/entity/player.c \
-			src/entity/dog.c \
-			src/entity/wolf.c \
-			src/display/display.c \
-			src/display/display_entity.c \
-			src/display/display_utils.c \
-			src/event/event.c \
-			src/event/keyboard.c
+SRCS	=	$(DIR_SRCS)main.c \
+			$(DIR_CORE)window.c \
+			$(DIR_CORE)image.c \
+			$(DIR_CORE)load_img.c \
+			$(DIR_CORE)destroy_img.c \
+			$(DIR_EVENT)event.c \
+			$(DIR_EVENT)keyboard.c \
 
 
 OBJS = ${addprefix ${DIR_OBJS},${SRCS:.c=.o}}

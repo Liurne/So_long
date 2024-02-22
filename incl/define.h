@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:09:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/20 18:44:35 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/22 17:56:24 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ typedef enum e_mob
 {
 	PLAYER,
 	DOG,
-	WOLF
+	BAD
 }	t_mob;
 
 typedef struct s_entity
@@ -96,6 +96,7 @@ typedef struct s_keyboard
 	int	down;
 	int	left;
 	int	right;
+	int	show_hitbox;
 }	t_keyboard;
 
 typedef struct s_data
@@ -106,13 +107,12 @@ typedef struct s_data
 	size_t		nb_tile;
 	size_t		nb_dogs;
 	t_entity	pl;
-	t_entity	wolf;
-	t_entity	*entities;
+	t_entity	bad;
+	t_entity	*dog;
 	t_img		tex_pl[5][4];
 	t_img		tex_dog[5][4];
 	t_img		tex_wolf[5][4];
-	int			trans;
-	int			show_hitbox;
+	int			night;
 	int			time;
 }	t_data;
 
