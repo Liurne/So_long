@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:45:37 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/20 18:32:38 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/23 16:38:46 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,7 @@
 static void	key_press_op(int keycode, t_data *sl)
 {
 	if (keycode == 103)
-	{
-		if (sl->show_hitbox)
-			sl->show_hitbox = 0;
-		else
-			sl->show_hitbox = 1;
-	}
-	if (keycode == 110)
-		sl->entities[0].nb_mv = sl->nb_case;
+		sl->keys.show_hitbox = 1 - sl->keys.show_hitbox
 }
 
 int	key_press(int keycode, t_data *sl)

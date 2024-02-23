@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:09:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/22 17:56:24 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/23 19:51:35 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define ERR_MAP "Map invalid or non-existant"
 # define ERR_TEX "Texture invalid or non-existant"
 # define ERR_IMG "Couldn't creater an image"
+# define ERR_MAL "Malloc failed"
 # define WIN_W 1280
 # define WIN_H 768
 # define C_NIGHT 0xFF001835
@@ -53,6 +54,13 @@ typedef struct s_vec
 	int	x;
 	int	y;
 }	t_vec;
+
+typedef enum e_status
+{
+	RUN,
+	WIN,
+	LOST
+}	t_status;
 
 typedef struct s_map
 {
@@ -104,11 +112,13 @@ typedef struct s_data
 	t_wins		win;
 	t_keyboard	keys;
 	t_map		map;
+	t_status	game_status;
 	size_t		nb_tile;
 	size_t		nb_dogs;
 	t_entity	pl;
 	t_entity	bad;
-	t_entity	*dog;
+	t_entity	*dogs;
+	t_entity	**entities;
 	t_img		tex_pl[5][4];
 	t_img		tex_dog[5][4];
 	t_img		tex_wolf[5][4];

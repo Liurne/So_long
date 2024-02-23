@@ -6,7 +6,7 @@
 #    By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 17:47:33 by jcoquard          #+#    #+#              #
-#    Updated: 2024/02/22 18:04:38 by jcoquard         ###   ########.fr        #
+#    Updated: 2024/02/23 19:54:09 by jcoquard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,8 @@ DIR_PARS		= ${DIR_SRCS}parsing/
 
 DIR_MAP			= ${DIR_SRCS}map/
 
+DIR_ENTITY			= ${DIR_SRCS}entity/
+
 DIR_MLX			= minilibx/
 
 DIR_LST			= ${DIR_UTILS}list/
@@ -67,12 +69,37 @@ END			= \033[0m
 HEADER	= incl/
 
 SRCS	=	$(DIR_SRCS)main.c \
+			$(DIR_UTILS)ft_bzero.c \
+			$(DIR_UTILS)ft_calloc.c \
+			$(DIR_UTILS)ft_itoa.c \
+			$(DIR_UTILS)ft_putmove_fd.c\
+			$(DIR_UTILS)ft_putnbr_fd.c \
+			$(DIR_UTILS)ft_putstr_fd.c \
+			$(DIR_UTILS)ft_strber.c \
+			$(DIR_UTILS)ft_strdup.c \
+			$(DIR_UTILS)ft_strjoin.c \
+			$(DIR_UTILS)ft_strlen.c \
+			$(DIR_UTILS)ft_vec.c \
 			$(DIR_CORE)window.c \
 			$(DIR_CORE)image.c \
 			$(DIR_CORE)load_img.c \
 			$(DIR_CORE)destroy_img.c \
+			$(DIR_PARS)load_map.c \
+			$(DIR_PARS)parsing_utils.c \
+			$(DIR_PARS)parsing.c \
+			$(DIR_RENDERER)display.c \
+			$(DIR_RENDERER)display_entity.c \
+			$(DIR_RENDERER)display_utils.c \
 			$(DIR_EVENT)event.c \
 			$(DIR_EVENT)keyboard.c \
+			$(DIR_ENTITY)entity.c \
+			$(DIR_ENTITY)init_entity.c \
+			$(DIR_ENTITY)player.c \
+			$(DIR_ENTITY)dog.c \
+			$(DIR_ENTITY)bad.c \
+			$(DIR_MAP)world.c \
+			$(DIR_MAP)world_border.c \
+			$(DIR_MAP)world_img.c \
 
 
 OBJS = ${addprefix ${DIR_OBJS},${SRCS:.c=.o}}
