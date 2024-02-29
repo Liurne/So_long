@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:37:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/23 19:56:14 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/23 23:32:41 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,9 @@ void	animation(t_data *sl);
 void	render_display(t_data *sl);
 
 /* -----event----- */
+int		event_manager(t_data *sl);
 int		key_press(int keycode, t_data *sl);
 int		key_release(int keycode, t_data *sl);
-int		event_manager(t_data *sl);
+void	reset_move(t_data *sl)
 
 #endif

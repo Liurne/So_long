@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   keyboard.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:45:37 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/23 16:38:46 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/23 23:32:13 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	reset_move(t_data *sl)
+{
+	sl->keys.down = 0;
+	sl->keys.up = 0;
+	sl->keys.left = 0;
+	sl->keys.right = 0;
+}
 
 static void	key_press_op(int keycode, t_data *sl)
 {

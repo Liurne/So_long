@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 15:23:48 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/23 19:56:02 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/23 23:19:13 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,28 +31,27 @@ void	dog_alloc(t_data *sl)
 {
 	int	x;
 	int	y;
-	int	dog;
 
-	dog = 0;
 	x = -1;
 	while (++x < sl->map.w)
 	{
 		y = -1;
 		while (++y < sl->map.h)
 			if (get_tile(sl, x, y) == 'C')
-				dog++;
+				sl->nb_entities++;
 	}
-	sl->dogs = ft_calloc(dog, sizeof(t_entity));
+	sl->dogs = ft_calloc(sl->nb_entities, sizeof(t_entity));
 	if (!sl->dogs)
 		error(sl, ERR_MAL);
-	sl->entities = ft_calloc(dog + 2, sizeof(t_entity *));
+	sl->nb_entities += 2;
+	sl->entities = ft_calloc(sl->nb_entities, sizeof(t_entity *));
 	if (!sl->entities)
 		error(sl, ERR_MAL);
 	sl->entities[0] = &sl->pl;
 	sl->entities[1] = &sl->bad;
-	x = -1;
-	while (++x < dog)
-		sl->entities[x + 2] = &sl->dogs[x];
+	x = 1;
+	while (++x < sl->nb_entities)
+		sl->entities[x] = &sl->dogs[x - 2];
 }
 
 int	is_still(char *map)

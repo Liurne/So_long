@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:13:30 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/23 19:50:59 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/23 23:20:18 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	render_display(t_data *sl)
 						&(sl->map.img), x - sl->map.pos.x, y - sl->map.pos.y),
 					C_NIGHT, sl->night));
 	}
-	display_entity(sl, sl->entities, 0, sl->nb_dogs);
+	display_entity(sl, sl->entities, 0, sl->nb_entities);
 	mlx_put_image_to_window(sl->win.mlx, sl->win.win,
 		sl->win.renderer.img, 0, 0);
 	display_text(sl);
