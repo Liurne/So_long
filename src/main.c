@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:54:37 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/23 16:56:08 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/29 17:34:48 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int ac, char **av)
 	mlx_hook(so_long.win.win, 2, 1L << 0, key_press, &so_long);
 	mlx_hook(so_long.win.win, 3, 1L << 1, key_release, &so_long);
 	mlx_hook(so_long.win.win, 17, 1L << 0, close_window, &so_long);
-	mlx_loop_hook(so_long.win.mlx, event_manager, &so_long);
+	mlx_loop_hook(so_long.win.mlx, process, &so_long);
 	mlx_loop(so_long.win.mlx);
 	return (0);
 }

@@ -6,16 +6,15 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 03:08:41 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/20 18:28:45 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/29 19:21:15 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	wich_tile(t_data *sl, int x, int y)
+void	wich_tile(t_data *sl, int x, int y)
 {
-	if (get_tile(sl, x / 128, y / 128) == '0' || get_tile(sl,
-			x / 128, y / 128) == 'P')
+	if (get_tile(sl, x / 128, y / 128) == '0')
 	{
 		if (((x / 128) + (y / 128)) % 5 == 4)
 			put_pixelmap(&(sl->map), x, y, 1);
@@ -27,14 +26,9 @@ static void	wich_tile(t_data *sl, int x, int y)
 	if (get_tile(sl, x / 128, y / 128) == '2')
 		which_border(sl, &(sl->map), x, y);
 	else if (get_tile(sl, x / 128, y / 128) == '1')
-	{
-		if (((x / 128) + (y / 128)) % 2)
-			put_pixelmap(&(sl->map), x, y, 3);
-		else
-			put_pixelmap(&(sl->map), x, y, 4);
-	}
+		put_pixelmap(&(sl->map), x, y, 3 + (x / 128 + y / 128) % 2);
 	else if (get_tile(sl, x / 128, y / 128) == 'C')
-		put_pixelmap(&(sl->map), x, y, 56);
+		put_pixelmap(&(sl->map), x, y, 55);
 	else if (get_tile(sl, x / 128, y / 128) == 'I')
 		put_pixelmap(&(sl->map), x, y, 53);
 	else if (get_tile(sl, x / 128, y / 128) == 'E')

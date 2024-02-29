@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   bad.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:33:33 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/23 23:14:19 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/29 19:36:49 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	bad_in_wall(t_data *sl, t_entity *e, int x, int y)
+ int	bad_in_wall(t_data *sl, t_entity *e, int x, int y)
 {
 	int	next_x;
 	int	next_y;
@@ -31,7 +31,7 @@ static int	bad_in_wall(t_data *sl, t_entity *e, int x, int y)
 		collision = 1;
 	return (collision);
 }
-static int	move_bad(t_data *sl, t_entity *e, int x, int y)
+ int	move_bad(t_data *sl, t_entity *e, int x, int y)
 {
 	static unsigned int delay_col;
 
@@ -47,9 +47,9 @@ static int	move_bad(t_data *sl, t_entity *e, int x, int y)
 	return (0);
 }
 
-static void	bad_action(t_data *sl, t_entity *e)
+ void	bad_action(t_data *sl, t_entity *e)
 {
-	if (e->inmove && sl->pl.alive)
+	if (e->inmove && sl->pl.active)
 	{
 		if (e->dir == 0)
 			move_bad(sl, e, 0, 14);
@@ -60,9 +60,9 @@ static void	bad_action(t_data *sl, t_entity *e)
 		if (e->dir == 3)
 			move_bad(sl, e, -14, 0);
 	}
-	if (entity_collision(&sl->pl, e) && sl->pl.alive)
+	if (entity_collision(&sl->pl, e) && sl->pl.active)
 	{
-		sl->pl.alive = 0;
+		sl->pl.active = 0;
 		e->inmove = 0;
 		e->dir = 4;
 		e->animation = 1;
@@ -81,7 +81,7 @@ void	bad_manager(t_data *sl, t_entity *e)
 
 	if (time > 100)
 		time = 0;
-	if (!(time % 2) && sl->pl.alive)
+	if (!(time % 2) && sl->pl.active)
 	{
 		e->dir = 5;
 		if (e->pos.y < sl->pl.pos.y)
@@ -90,7 +90,7 @@ void	bad_manager(t_data *sl, t_entity *e)
 			e->dir = 1;
 		if (e->dir != 5)
 			bad_action(sl, e);
-		if (!sl->pl.alive)
+		if (!sl->pl.active)
 			return;
 		if (e->pos.x < sl->pl.pos.x)
 			e->dir = 2;

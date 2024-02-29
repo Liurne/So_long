@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event.c                                            :+:      :+:    :+:   */
+/*   process.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:29:51 by liurne            #+#    #+#             */
-/*   Updated: 2024/02/23 19:58:42 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/29 19:36:49 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	update_night(t_data *sl)
+void	update_night(t_data *sl)
 {
 	if (sl->night < 80)
 		sl->night = (int)(((((float)sl->pl.nb_mv
@@ -20,24 +20,23 @@ static void	update_night(t_data *sl)
 	if (sl->night >= 80)
 		ft_putstr_fd("The big bad wolf is...\nCOMMING!!!!!\n", 1);
 }
-/*
-static void	bad_end(t_data *sl)
+
+void	bad_end(t_data *sl)
 {
 	if (sl->time > 20)
 	{
 		sl->pl.animation = 2;
-		sl->entities[1].animation = 2;
+		sl->bad.animation = 2;
 		sl->time = 0;
 	}
 	sl->time++;
 }
-*/
 
-int	event_manager(t_data *sl)
+int	process(t_data *sl)
 {
 	int		i;
 
-	if (sl->pl.alive)
+	if (sl->pl.active)
 	{
 		player_manager(sl);
 		if (sl->pl.delay > 110 && sl->pl.dir >= 4)
@@ -47,8 +46,8 @@ int	event_manager(t_data *sl)
 		i = -1;
 		while (++i < sl->nb_dogs)
 			dog_manager(sl, &(sl->dogs[i]));
-		if (sl->bad.alive)
-			wolf_manager(sl, &(sl->bad));
+		if (sl->bad.active)
+			bad_manager(sl, &(sl->bad));
 	}
 	//else
 	//	bad_end(sl);

@@ -6,13 +6,13 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:15:17 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/23 19:43:48 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/29 18:51:56 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	display_hitbox(t_data *sl, t_entity *e)
+void	display_hitbox(t_data *sl, t_entity *e)
 {
 	int	x;
 	int	y;
@@ -34,7 +34,7 @@ static void	display_hitbox(t_data *sl, t_entity *e)
 	}
 }
 
-static t_img	*wich_texture(t_data *sl, t_entity *e)
+t_img	*wich_texture(t_data *sl, t_entity *e)
 {
 	if (e->type == PLAYER)
 		return (&(sl->tex_pl[e->dir][e->animation]));

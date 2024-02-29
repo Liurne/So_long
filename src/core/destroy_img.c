@@ -6,13 +6,13 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 14:25:14 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/20 18:08:44 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/29 17:31:38 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	destroy_img_pl(t_data *sl)
+ void	destroy_img_pl(t_data *sl)
 {
 	destroy_img(sl, &(sl->tex_pl[0][0]));
 	destroy_img(sl, &(sl->tex_pl[0][1]));
@@ -35,7 +35,7 @@ static void	destroy_img_pl(t_data *sl)
 	destroy_img(sl, &(sl->tex_pl[4][2]));
 }
 
-static void	destroy_img_dog(t_data *sl)
+ void	destroy_img_dog(t_data *sl)
 {
 	destroy_img(sl, &(sl->tex_dog[0][0]));
 	destroy_img(sl, &(sl->tex_dog[0][1]));
@@ -56,7 +56,7 @@ static void	destroy_img_dog(t_data *sl)
 	destroy_img(sl, &(sl->tex_dog[4][0]));
 }
 
-static void	destroy_img_wolf(t_data *sl)
+ void	destroy_img_wolf(t_data *sl)
 {
 	destroy_img(sl, &(sl->tex_wolf[0][0]));
 	destroy_img(sl, &(sl->tex_wolf[0][1]));
@@ -78,7 +78,7 @@ static void	destroy_img_wolf(t_data *sl)
 	destroy_img(sl, &(sl->tex_wolf[4][2]));
 }
 
-static void	destroy_img_map(t_data *sl)
+ void	destroy_img_map(t_data *sl)
 {
 	destroy_img(sl, &(sl->map.tex[0]));
 	destroy_img(sl, &(sl->map.tex[1]));

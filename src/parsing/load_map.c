@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_map.c                                      :+:      :+:    :+:   */
+/*   load_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:20:55 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/20 17:31:21 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/29 17:34:00 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static char	*read_file(int fd, char *str)
+char	*read_file(int fd, char *str)
 {
 	char	buff[43];
 	int		rbytes;
@@ -33,7 +33,7 @@ static char	*read_file(int fd, char *str)
 	return (str);
 }
 
-static int	load_file(t_data *sl, char *path)
+int	load_file(t_data *sl, char *path)
 {
 	int	fd;
 

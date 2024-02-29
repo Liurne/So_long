@@ -6,13 +6,13 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:34:36 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/23 18:29:52 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/29 19:03:21 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	verif_map_size(t_data *sl)
+ int	verif_map_size(t_data *sl)
 {
 	int	tmp;
 
@@ -28,7 +28,7 @@ static int	verif_map_size(t_data *sl)
 	return (1);
 }
 
-static int	parcour_map(t_data *sl)
+ int	parcour_map(t_data *sl)
 {
 	int	i;
 	int	j;
@@ -42,7 +42,7 @@ static int	parcour_map(t_data *sl)
 		{
 			c = get_tile(sl, i, j);
 			if (c != 'C' && c != 'P' && c != '1' && c != '0'
-					&& c != 'E')
+					&& c != 'E' && !c)
 				return (0);
 			if (i == sl->map.w - 1 || i == 0 || j == sl->map.h - 1 || j == 0)
 				if (c != '1')
@@ -52,7 +52,7 @@ static int	parcour_map(t_data *sl)
 	return (1);
 }
 
-static int	verif_count(t_data *sl)
+ int	verif_count(t_data *sl)
 {
 	int	p;
 	int	e;
@@ -72,15 +72,15 @@ static int	verif_count(t_data *sl)
 			sl->nb_dogs++;
 		if (sl->map.map[i] == 'C' || sl->map.map[i] == '0')
 			sl->nb_tile++;
-		init_entity(sl, sl->map.map[i], i - (int)(i / \
-		(sl->map.w + 1)), i / (sl->map.w + 1));
+		init_entity(sl, sl->map.map[i], i - ((i / (sl->map.w + 1)) * \
+			(sl->map.w + 1)), i / (sl->map.w + 1));
 	}
 	if (p != 1 || e != 1 || sl->nb_dogs < 1)
 		return (0);
 	return (1);
 }
 
-static int	recu_finder(t_data *sl, char *map, int x, int y)
+ int	recu_finder(t_data *sl, char *map, int x, int y)
 {
 	if (x >= sl->map.w || x < 0 || y >= sl->map.h || y < 0
 		|| map[(y * (sl->map.w + 1)) + x] == '1')
@@ -102,12 +102,9 @@ int	verif_map(t_data *sl)
 		return (0);
 	if (!verif_map_size(sl) || !verif_count(sl) || !parcour_map(sl))
 		return (free(tmp), 0);
-	sl->map.pos.x = 0;
-	sl->map.pos.y = 0;
 	recu_finder(sl, tmp, sl->map.start.x, sl->map.start.y);
 	if (is_still(tmp))
 		return (free(tmp), 0);
 	complete_border(sl, 0, 0);
-	printf("%s\n", sl->map.map);
 	return (free(tmp), 1);
 }

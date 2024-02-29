@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 15:23:48 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/23 23:19:13 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/29 18:32:24 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	complete_border(t_data *sl, int x, int y)
 		complete_border(sl, x, y + 1);
 		complete_border(sl, x, y - 1);
 	}
-	
 }
 
 void	dog_alloc(t_data *sl)

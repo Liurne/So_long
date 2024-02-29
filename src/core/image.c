@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:58:59 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/22 18:01:28 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/29 19:05:14 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int	load_img(t_data *sl, char *path, t_img *img)
 			&(img->img_h));
 	if (!img->img)
 	{
-		printf("%s\n", path);
+		ft_putstr_fd(path, 2);
+		ft_putstr_fd("\n", 2);
 		error(sl, ERR_TEX);
 	}
 	img->addr = mlx_get_data_addr(img->img, &(img->bits_per_pixel),

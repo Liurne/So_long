@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:37:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/23 23:32:41 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/29 17:24:52 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		error(t_data *sl, char *msg);
 
 /* -----parsing----- */
 void	complete_border(t_data *sl, int x, int y);
-void		dog_alloc(t_data *sl);
+void	dog_alloc(t_data *sl);
 int		is_still(char *map);
 int		load_map(t_data *sl, char *path);
 int		verif_map(t_data *sl);
@@ -58,7 +58,7 @@ int		map_collision(t_data *sl, t_entity *e, int x, int y);
 int		entity_collision(t_entity *e1, t_entity *e2);
 void	player_manager(t_data *sl);
 void	dog_manager(t_data *sl, t_entity *e);
-void	wolf_manager(t_data *sl, t_entity *e);
+void	bad_manager(t_data *sl, t_entity *e);
 
 /* -----renderer----- */
 void	put_pixel(t_img *img, int x, int y, int color);
@@ -70,9 +70,9 @@ void	animation(t_data *sl);
 void	render_display(t_data *sl);
 
 /* -----event----- */
-int		event_manager(t_data *sl);
+int		process(t_data *sl);
 int		key_press(int keycode, t_data *sl);
 int		key_release(int keycode, t_data *sl);
-void	reset_move(t_data *sl)
+void	reset_move(t_data *sl);
 
 #endif

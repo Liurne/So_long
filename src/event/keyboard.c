@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyboard.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:45:37 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/23 23:32:13 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/29 17:33:34 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	reset_move(t_data *sl)
 	sl->keys.right = 0;
 }
 
-static void	key_press_op(int keycode, t_data *sl)
+ void	key_press_op(int keycode, t_data *sl)
 {
 	if (keycode == 103)
-		sl->keys.show_hitbox = 1 - sl->keys.show_hitbox
+		sl->keys.show_hitbox = 1 - sl->keys.show_hitbox;
 }
 
 int	key_press(int keycode, t_data *sl)

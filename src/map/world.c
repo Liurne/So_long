@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:43:59 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/20 17:43:23 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/29 18:19:27 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 char	get_tile(t_data *sl, int x, int y)
 {
-	if (x < sl->map.w && y < sl->map.h && x >= 0 && y >= 0)
+	if (x < sl->map.w && y < sl->map.h && x >= 0 && y >= 0){
 		return (sl->map.map[(y * (sl->map.w + 1)) + x]);
+	}
 	return ('2');
 }
 

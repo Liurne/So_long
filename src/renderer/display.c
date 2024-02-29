@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:13:30 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/23 23:20:18 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/29 18:51:40 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	display_text(t_data	*sl)
+void	display_text(t_data	*sl)
 {
 	char	*tmp;
 
@@ -52,7 +52,7 @@ void	render_display(t_data *sl)
 						&(sl->map.img), x - sl->map.pos.x, y - sl->map.pos.y),
 					C_NIGHT, sl->night));
 	}
-	display_entity(sl, sl->entities, 0, sl->nb_entities);
+	display_entity(sl, sl->entities, 0, sl->nb_entities - 1);
 	mlx_put_image_to_window(sl->win.mlx, sl->win.win,
 		sl->win.renderer.img, 0, 0);
 	display_text(sl);

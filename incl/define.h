@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:09:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/23 23:17:19 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/29 19:36:24 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ typedef struct s_entity
 {
 	int		id;
 	t_mob	type;
-	int		alive;
+	int		active;
 	t_vec	pos;
 	t_vec	tpos;
 	int		w;
@@ -113,9 +113,9 @@ typedef struct s_data
 	t_keyboard	keys;
 	t_map		map;
 	t_status	game_status;
-	size_t		nb_tile;
-	size_t		nb_entities;
-	size_t		nb_dogs;
+	int		nb_tile;
+	int		nb_entities;
+	int		nb_dogs;
 	t_entity	pl;
 	t_entity	bad;
 	t_entity	*dogs;

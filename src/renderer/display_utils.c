@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 17:52:39 by liurne            #+#    #+#             */
-/*   Updated: 2024/02/23 19:55:30 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/02/29 17:18:30 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	transparence(int c1, int c2, int t)
 
 void	animation(t_data *sl)
 {
-	size_t	i;
+	int	i;
 
 	i = -1;
 	while(++i < sl->nb_dogs + 2)

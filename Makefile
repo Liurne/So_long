@@ -6,7 +6,7 @@
 #    By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 17:47:33 by jcoquard          #+#    #+#              #
-#    Updated: 2024/02/23 19:54:09 by jcoquard         ###   ########.fr        #
+#    Updated: 2024/02/29 18:40:31 by jcoquard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,8 +90,8 @@ SRCS	=	$(DIR_SRCS)main.c \
 			$(DIR_RENDERER)display.c \
 			$(DIR_RENDERER)display_entity.c \
 			$(DIR_RENDERER)display_utils.c \
-			$(DIR_EVENT)event.c \
 			$(DIR_EVENT)keyboard.c \
+			$(DIR_EVENT)process.c \
 			$(DIR_ENTITY)entity.c \
 			$(DIR_ENTITY)init_entity.c \
 			$(DIR_ENTITY)player.c \
@@ -112,7 +112,7 @@ DEPS_FLAGS	= -MMD -MP
 
 CC			= cc
 
-CFLAGS		= ${DEPS_FLAGS} -Wall -Wextra -Werror -g3 #-fsanitize=address
+CFLAGS		= ${DEPS_FLAGS} -Wall -Wextra -Werror -g3 -fsanitize=address
 
 # ---- Commands ---- #
 

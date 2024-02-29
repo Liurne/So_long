@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   dog.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:58:03 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/23 23:39:18 by liurne           ###   ########.fr       */
+/*   Updated: 2024/02/29 19:37:11 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	move_dog(t_data *sl, t_entity *e, int x, int y)
+ int	move_dog(t_data *sl, t_entity *e, int x, int y)
 {
 	if (!map_collision(sl, e, x, y))
 	{
@@ -28,7 +28,7 @@ static int	move_dog(t_data *sl, t_entity *e, int x, int y)
 	return (0);
 }
 
-static void	dog_pet(t_data *sl, t_entity *pl, t_entity *e)
+ void	dog_pet(t_data *sl, t_entity *pl, t_entity *e)
 {
 	ft_putstr_fd("NEED...TO...PEEEEEEEET!!\n", 1);
 	ft_putstr_fd("Time is passing...\n", 1);
@@ -46,7 +46,7 @@ static void	dog_pet(t_data *sl, t_entity *pl, t_entity *e)
 	pl->inmove = 0;
 }
 
-static void	dog_action(t_data *sl, t_entity *e, int time)
+ void	dog_action(t_data *sl, t_entity *e, int time)
 {
 	if (e->inmove && !(time % 3))
 	{
@@ -59,20 +59,19 @@ static void	dog_action(t_data *sl, t_entity *e, int time)
 		if (e->dir == 3)
 			move_dog(sl, e, -10, 0);
 	}
-	if (entity_collision(&(sl->pl), e) && e->delay >= 175)
+	if (entity_collision(&(sl->pl), e))
 		dog_pet(sl, &sl->pl, e);
 }
 
 void	dog_manager(t_data *sl, t_entity *e)
 {
-	static int	time;
 	static int	r;
 
-	if (sl->pl.delay > 150 && e->alive)
+	if (e->active)
 	{
-		if (time > 100)
+		if (e->delay > 100)
 		{
-			time = 0;
+			e->delay = 0;
 			r += (sl->pl.pos.x + sl->pl.pos.y + sl->pl.dist + sl->time + e->id);
 			if (!(r % 3))
 				e->inmove = 0;
@@ -80,11 +79,7 @@ void	dog_manager(t_data *sl, t_entity *e)
 				e->inmove = 1;
 			e->dir = (r % 4);
 		}
-		if (sl->pl.delay < 175 && e->id == 1 && time % 8)
-			sl->pl.delay++;
-		dog_action(sl, e, time);
+		dog_action(sl, e, e->delay);
 	}
-	else if (e->id == 0)
-		sl->pl.delay++;
-	time++;
+	e->delay++;
 }
