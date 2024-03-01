@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:29:51 by liurne            #+#    #+#             */
-/*   Updated: 2024/02/29 19:36:49 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/01 18:20:22 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 void	update_night(t_data *sl)
 {
-	if (sl->night < 80)
+	if (sl->night < 70)
 		sl->night = (int)(((((float)sl->pl.nb_mv
 					/ (float)(sl->nb_tile)) * 4) / 5) * 100);
-	if (sl->night >= 80)
+	if (sl->night >= 70 && !sl->bad.active)
+	{
 		ft_putstr_fd("The big bad wolf is...\nCOMMING!!!!!\n", 1);
+		sl->bad.active = 1;
+		sl->bad.inmove = 1;
+	}
 }
 
 void	bad_end(t_data *sl)
@@ -38,9 +42,8 @@ int	process(t_data *sl)
 
 	if (sl->pl.active)
 	{
-		player_manager(sl);
-		if (sl->pl.delay > 110 && sl->pl.dir >= 4)
-			sl->pl.dir = 0;
+		if ((sl->pl.delay > 30 && !sl->bad.active) || sl->bad.active)
+			player_manager(sl);
 		animation(sl);
 		update_night(sl);
 		i = -1;
@@ -49,8 +52,8 @@ int	process(t_data *sl)
 		if (sl->bad.active)
 			bad_manager(sl, &(sl->bad));
 	}
-	//else
-	//	bad_end(sl);
+	else
+		bad_end(sl);
 	render_display(sl);
 	return (0);
 }

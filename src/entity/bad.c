@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:33:33 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/29 19:36:49 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/01 18:21:13 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@
 	if (e->inmove && sl->pl.active)
 	{
 		if (e->dir == 0)
-			move_bad(sl, e, 0, 14);
+			move_bad(sl, e, 0, 11);
 		if (e->dir == 1)
-			move_bad(sl, e, 0, -14);
+			move_bad(sl, e, 0, -11);
 		if (e->dir == 2)
-			move_bad(sl, e, 14, 0);
+			move_bad(sl, e, 11, 0);
 		if (e->dir == 3)
-			move_bad(sl, e, -14, 0);
+			move_bad(sl, e, -11, 0);
 	}
 	if (entity_collision(&sl->pl, e) && sl->pl.active)
 	{
@@ -67,8 +67,9 @@
 		e->dir = 4;
 		e->animation = 1;
 		sl->pl.dir = 4;
-		sl->pl.pos.x = e->pos.x;
-		sl->pl.pos.y = e->pos.y;
+		ft_setvec(&sl->pl.pos, (e->pos.x + sl->pl.pos.x) * 0.5, \
+		(e->pos.y + sl->pl.pos.y) * 0.5);
+		ft_setvec(&e->pos, sl->pl.pos.x + 1, sl->pl.pos.y + 1);
 		sl->pl.animation = 1;
 		sl->time = 0;
 		ft_putstr_fd("NIOM NIOM NIOM!!!\n You lost...\n", 1);
@@ -79,7 +80,7 @@ void	bad_manager(t_data *sl, t_entity *e)
 {
 	static int	time;
 
-	if (time > 100)
+	if (time > 100 || time < 0)
 		time = 0;
 	if (!(time % 2) && sl->pl.active)
 	{
