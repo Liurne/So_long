@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:09:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/29 19:36:24 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/05 18:20:41 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ typedef struct s_data
 	t_img		tex_pl[5][4];
 	t_img		tex_dog[5][4];
 	t_img		tex_wolf[5][4];
+	int			is_night;
 	int			night;
 	int			time;
 }	t_data;

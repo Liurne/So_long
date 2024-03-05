@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:29:51 by liurne            #+#    #+#             */
-/*   Updated: 2024/03/01 18:20:22 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/05 18:38:44 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	update_night(t_data *sl)
 	if (sl->night >= 70 && !sl->bad.active)
 	{
 		ft_putstr_fd("The big bad wolf is...\nCOMMING!!!!!\n", 1);
+		sl->is_night = 1;
 		sl->bad.active = 1;
 		sl->bad.inmove = 1;
 	}
@@ -42,13 +43,13 @@ int	process(t_data *sl)
 
 	if (sl->pl.active)
 	{
-		if ((sl->pl.delay > 30 && !sl->bad.active) || sl->bad.active)
-			player_manager(sl);
 		animation(sl);
 		update_night(sl);
 		i = -1;
 		while (++i < sl->nb_dogs)
 			dog_manager(sl, &(sl->dogs[i]));
+		if ((sl->pl.delay > 30 && !sl->bad.active) || sl->bad.active)
+			player_manager(sl);
 		if (sl->bad.active)
 			bad_manager(sl, &(sl->bad));
 	}

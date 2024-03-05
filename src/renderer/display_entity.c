@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:15:17 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/01 18:32:19 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/05 18:25:25 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	display_entity(t_data *sl, t_entity **mobs, int start, int end)
 	tmp = mobs[start];
 	mobs[start] = mobs[min];
 	mobs[min] = tmp;
-	//if (mobs[start]->active)
+	if (mobs[start]->type != BAD || sl->is_night)
 		draw_entity(sl, mobs[start]);
 	display_entity(sl, mobs, start + 1, end);
 }

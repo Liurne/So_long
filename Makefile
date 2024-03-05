@@ -6,7 +6,7 @@
 #    By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 17:47:33 by jcoquard          #+#    #+#              #
-#    Updated: 2024/03/01 19:08:32 by jcoquard         ###   ########.fr        #
+#    Updated: 2024/03/05 17:23:48 by jcoquard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -112,7 +112,7 @@ DEPS_FLAGS	= -MMD -MP
 
 CC			= cc
 
-CFLAGS		= ${DEPS_FLAGS} -Wall -Wextra -Werror -g3 -O2 -fsanitize=address
+CFLAGS		= ${DEPS_FLAGS} -Wall -Wextra -Werror -g3 #-O2 -fsanitize=address
 
 # ---- Commands ---- #
 
