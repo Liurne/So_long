@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 17:52:39 by liurne            #+#    #+#             */
-/*   Updated: 2024/02/29 17:18:30 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/05 22:06:04 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ int	get_pixel(t_img *img, int x, int y)
 
 int	transparence(int c1, int c2, int t)
 {
-	int	r;
-	int	g;
-	int	b;
-	float tr;
+	int		r;
+	int		g;
+	int		b;
+	float	tr;
 
-	tr = (float)t / 100;
+	tr = (float)t * 0.01;
 	r = (((c1 >> 16) & 0xFF) * (1.0 - tr) + ((c2 >> 16) & 0xFF) * tr);
 	if (r > 255)
 		r = 255;
@@ -51,7 +51,7 @@ void	animation(t_data *sl)
 	int	i;
 
 	i = -1;
-	while(++i < sl->nb_dogs + 2)
+	while (++i < sl->nb_entities)
 	{
 		if (!sl->entities[i]->inmove)
 			sl->entities[i]->animation = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_entity.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:15:17 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/05 18:25:25 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/05 23:13:48 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	draw_entity(t_data *sl, t_entity *e)
 				put_pixel(&(sl->win.renderer), e->pos.x + x + sl->map.pos.x,
 					e->pos.y + y + sl->map.pos.y, transparence(get_pixel(
 							wich_texture(sl, e), x, y),
-						C_NIGHT, sl->night));
+						sl->col_sky, sl->night));
 		}
 	}
 	if (sl->keys.show_hitbox)

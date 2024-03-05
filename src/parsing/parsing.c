@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:34:36 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/29 19:03:21 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/05 21:44:22 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
- int	verif_map_size(t_data *sl)
+int	verif_map_size(t_data *sl)
 {
 	int	tmp;
 
@@ -28,10 +28,10 @@
 	return (1);
 }
 
- int	parcour_map(t_data *sl)
+int	parcour_map(t_data *sl)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	c;
 
 	i = -1;
@@ -42,7 +42,7 @@
 		{
 			c = get_tile(sl, i, j);
 			if (c != 'C' && c != 'P' && c != '1' && c != '0'
-					&& c != 'E' && !c)
+				&& c != 'E' && !c)
 				return (0);
 			if (i == sl->map.w - 1 || i == 0 || j == sl->map.h - 1 || j == 0)
 				if (c != '1')
@@ -52,7 +52,7 @@
 	return (1);
 }
 
- int	verif_count(t_data *sl)
+int	verif_count(t_data *sl)
 {
 	int	p;
 	int	e;
@@ -80,7 +80,7 @@
 	return (1);
 }
 
- int	recu_finder(t_data *sl, char *map, int x, int y)
+int	recu_finder(t_data *sl, char *map, int x, int y)
 {
 	if (x >= sl->map.w || x < 0 || y >= sl->map.h || y < 0
 		|| map[(y * (sl->map.w + 1)) + x] == '1')

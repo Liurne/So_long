@@ -3,31 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   dog.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:58:03 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/05 18:31:25 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/05 22:55:37 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-
-int	is_still_dog(t_data *sl)
-{
-	int	i;
-
-	i = 0;
-	while (i < sl->nb_dogs)
-	{
-		if (sl->dogs[i].active)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int	move_dog(t_data *sl, t_entity *e, int x, int y)
+static int	move_dog(t_data *sl, t_entity *e, int x, int y)
 {
 	if (!map_collision(sl, e, x, y))
 	{
@@ -43,11 +28,12 @@ int	move_dog(t_data *sl, t_entity *e, int x, int y)
 	return (0);
 }
 
-void	dog_pet(t_data *sl, t_entity *pl, t_entity *e)
+static void	dog_pet(t_data *sl, t_entity *pl, t_entity *e)
 {
 	if (e->active)
 	{
 		ft_putstr_fd("NEED...TO...PEEEEEEEET!!\n", 1);
+		sl->nb_dogs_active--;
 		e->active = 0;
 		e->inmove = 0;
 		e->dir = 4;
@@ -57,19 +43,20 @@ void	dog_pet(t_data *sl, t_entity *pl, t_entity *e)
 		ft_setvec(&pl->pos, e->pos.x + 1, e->pos.y + 1);
 		if (!sl->is_night)
 			reset_move(sl);
-		if (!is_still_dog(sl) && get_tile(sl, sl->map.end.x, sl->map.end.y) \
-			!= 'F')
+		if (!sl->nb_dogs_active && get_tile(sl, sl->map.end.x, \
+			sl->map.end.y) != 'F')
 		{
 			set_tile(sl, sl->map.end.x, sl->map.end.y, 'F');
 			reload_tile_img(sl, sl->map.end.x * 128, sl->map.end.y * 128);
+			ft_putstr_fd("The house is open!!\n", 1);
 		}
 	}
-	pl->dir = 4;
+	move_player(sl, 0, 0, 4);
 	pl->animation = 0;
 	pl->inmove = 0;
 }
 
-void	dog_action(t_data *sl, t_entity *e, int time)
+static void	dog_action(t_data *sl, t_entity *e, int time)
 {
 	if (e->inmove && !(time % 3))
 	{

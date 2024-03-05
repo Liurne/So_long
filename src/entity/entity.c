@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   entity.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 15:35:48 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/01 18:26:20 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/05 22:00:55 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	entity_collision(t_entity *e1, t_entity *e2)
 	return (0);
 }
 
- int	collision_action(t_data *sl, t_entity *e, int x, int y)
+static int	collision_action(t_data *sl, t_entity *e, int x, int y)
 {
 	if (e->type == PLAYER)
 	{

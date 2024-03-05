@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   load_img.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:36:17 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/29 17:31:43 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/05 21:50:17 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
- void	load_map_img(t_data *sl)
+static void	load_map_img(t_data *sl)
 {
-	(void)sl; 
 	load_img(sl, "texture/grass_empty.xpm", &(sl->map.tex[0]));
 	load_img(sl, "texture/grass_alt.xpm", &(sl->map.tex[1]));
 	load_img(sl, "texture/grass_alt_2.xpm", &(sl->map.tex[2]));
@@ -74,7 +73,7 @@
 	load_img(sl, "texture/collectible.xpm", &(sl->map.tex[56]));
 }
 
- void	load_pl_img(t_data *sl)
+static void	load_pl_img(t_data *sl)
 {
 	load_img(sl, "texture/pl_front.xpm", &(sl->tex_pl[0][0]));
 	load_img(sl, "texture/pl_front_walk1.xpm", &(sl->tex_pl[0][1]));
@@ -97,7 +96,7 @@
 	load_img(sl, "texture/pl_killed.xpm", &(sl->tex_pl[4][2]));
 }
 
- void	load_dog_img(t_data *sl)
+static void	load_dog_img(t_data *sl)
 {
 	load_img(sl, "texture/dog_front.xpm", &(sl->tex_dog[0][0]));
 	load_img(sl, "texture/dog_front_walk1.xpm", &(sl->tex_dog[0][1]));
@@ -118,7 +117,7 @@
 	load_img(sl, "texture/dog_lay.xpm", &(sl->tex_dog[4][0]));
 }
 
- void	load_wolf_img(t_data *sl)
+static void	load_wolf_img(t_data *sl)
 {
 	load_img(sl, "texture/test/pl_front.xpm", &(sl->tex_wolf[0][0]));
 	load_img(sl, "texture/test/pl_front_walk1.xpm", &(sl->tex_wolf[0][1]));

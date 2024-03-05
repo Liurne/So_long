@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:38:04 by liurne            #+#    #+#             */
-/*   Updated: 2024/03/01 19:07:44 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/05 22:08:43 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
- int	move_player(t_data *sl, int x, int y, int dir)
+int	move_player(t_data *sl, int x, int y, int dir)
 {
 	sl->pl.dir = dir;
 	sl->pl.inmove = 1;
@@ -26,16 +26,16 @@
 		}
 		sl->pl.pos.x += x;
 		sl->pl.pos.y += y;
-		if (x != 0 && sl->pl.pos.x >= sl->win.w / 2 && ((sl->map.w * 128)
-				- sl->pl.pos.x) > sl->win.w / 2)
+		if (x != 0 && sl->pl.pos.x >= sl->win.w * 0.5 && ((sl->map.w * 128)
+				- sl->pl.pos.x) > sl->win.w * 0.5)
 			if (sl->map.pos.x - x <= 0 && sl->map.pos.x - x - sl->win.w
 				>= sl->map.w * -128)
-				sl->map.pos.x = -sl->pl.pos.x + sl->win.w / 2;
-		if (y != 0 && sl->pl.pos.y >= sl->win.h / 2 && ((sl->map.h * 128)
-				- sl->pl.pos.y) > sl->win.h / 2)
+				sl->map.pos.x = -sl->pl.pos.x + sl->win.w * 0.5;
+		if (y != 0 && sl->pl.pos.y >= sl->win.h * 0.5 && ((sl->map.h * 128)
+				- sl->pl.pos.y) > sl->win.h * 0.5)
 			if (sl->map.pos.y - y <= 0 && sl->map.pos.y - y - sl->win.h
 				>= sl->map.h * -128)
-				sl->map.pos.y = -sl->pl.pos.y + sl->win.h / 2;
+				sl->map.pos.y = -sl->pl.pos.y + sl->win.h * 0.5;
 	}
 	return (0);
 }
@@ -51,6 +51,6 @@ void	player_manager(t_data *sl)
 	if (sl->keys.right)
 		move_player(sl, 11, 0, 2);
 	if (!sl->keys.up && !sl->keys.down && !sl->keys.left
-			&& !sl->keys.right)
+		&& !sl->keys.right)
 		sl->pl.inmove = 0;
 }

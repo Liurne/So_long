@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:20:55 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/29 17:34:00 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/05 23:03:20 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ int	load_map(t_data *sl, char *path)
 		return (0);
 	if (!verif_map(sl))
 		return (0);
+	sl->col_sky = C_NIGHT;
 	return (1);
 }

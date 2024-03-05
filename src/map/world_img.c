@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   world_img.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 03:08:41 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/29 19:21:15 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/05 21:47:31 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	wich_tile(t_data *sl, int x, int y)
 			put_pixelmap(&(sl->map), x, y, 2);
 		else
 			put_pixelmap(&(sl->map), x, y, 0);
-	}	
+	}
 	if (get_tile(sl, x / 128, y / 128) == '2')
 		which_border(sl, &(sl->map), x, y);
 	else if (get_tile(sl, x / 128, y / 128) == '1')

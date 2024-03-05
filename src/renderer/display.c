@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:13:30 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/29 18:51:40 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/05 22:58:51 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	display_text(t_data	*sl)
 	free(tmp);
 	mlx_string_put(sl->win.mlx, sl->win.win, 10, 35, 0xFFFFFFFF,
 		"Number of boxes remaining : ");
-	tmp = ft_itoa(sl->nb_dogs);
+	tmp = ft_itoa(sl->nb_dogs_active);
 	if (!tmp)
 	{
 		ft_putstr_fd("Error : malloc failled\n", 2);
@@ -50,7 +50,7 @@ void	render_display(t_data *sl)
 		while (y++ < sl->win.h && y - sl->map.pos.y < sl->map.h * 128)
 			put_pixel(&(sl->win.renderer), x, y, transparence(get_pixel(
 						&(sl->map.img), x - sl->map.pos.x, y - sl->map.pos.y),
-					C_NIGHT, sl->night));
+					sl->col_sky, sl->night));
 	}
 	display_entity(sl, sl->entities, 0, sl->nb_entities - 1);
 	mlx_put_image_to_window(sl->win.mlx, sl->win.win,

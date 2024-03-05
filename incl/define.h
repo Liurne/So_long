@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:09:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/05 18:20:41 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/05 23:12:50 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define WIN_W 1280
 # define WIN_H 768
 # define C_NIGHT 0xFF001835
+# define C_DEAD 0xFF400018
 
 typedef struct s_img
 {
@@ -116,6 +117,7 @@ typedef struct s_data
 	int		nb_tile;
 	int		nb_entities;
 	int		nb_dogs;
+	int		nb_dogs_active;
 	t_entity	pl;
 	t_entity	bad;
 	t_entity	*dogs;
@@ -125,6 +127,7 @@ typedef struct s_data
 	t_img		tex_wolf[5][4];
 	int			is_night;
 	int			night;
+	int			col_sky;
 	int			time;
 }	t_data;
 

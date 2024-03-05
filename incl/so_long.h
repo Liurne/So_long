@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:37:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/29 17:24:52 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/05 21:35:15 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	which_border(t_data *sl, t_map *map, int x, int y);
 /* -----entity----- */
 void	init_entity(t_data *sl, char tile, int x, int y);
 int		map_collision(t_data *sl, t_entity *e, int x, int y);
+int		move_player(t_data *sl, int x, int y, int dir);
 int		entity_collision(t_entity *e1, t_entity *e2);
 void	player_manager(t_data *sl);
 void	dog_manager(t_data *sl, t_entity *e);

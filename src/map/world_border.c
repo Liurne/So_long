@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   world_border.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 03:32:30 by liurne            #+#    #+#             */
-/*   Updated: 2024/02/29 17:33:53 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/05 21:45:45 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,7 +197,6 @@ void	fborder4(t_data *sl, t_map *map, int x, int y)
 		else if (get_tile(sl, cx - 1, cy - 1) == '2')
 			put_pixelmap(map, x, y, 22);
 	}
-	
 }
 void	which_border(t_data *sl, t_map *map, int x, int y)
 {
@@ -218,5 +217,4 @@ void	which_border(t_data *sl, t_map *map, int x, int y)
 		put_pixelmap(map, x, y, 51);
 	else
 		fborder4(sl, map, x, y);
-	
 }

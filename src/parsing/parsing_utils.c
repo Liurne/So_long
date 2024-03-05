@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 15:23:48 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/02/29 18:32:24 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/05 22:52:47 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	complete_border(t_data *sl, int x, int y)
 {
-	if(x < 0 || y < 0 || x > sl->map.w - 1 || y > sl->map.h - 1)
-		return;
+	if (x < 0 || y < 0 || x > sl->map.w - 1 || y > sl->map.h - 1)
+		return ;
 	if (get_tile(sl, x, y) == '1')
 	{
 		set_tile(sl, x, y, '2');
@@ -39,6 +39,7 @@ void	dog_alloc(t_data *sl)
 			if (get_tile(sl, x, y) == 'C')
 				sl->nb_entities++;
 	}
+	sl->nb_dogs_active =sl->nb_entities;
 	sl->dogs = ft_calloc(sl->nb_entities, sizeof(t_entity));
 	if (!sl->dogs)
 		error(sl, ERR_MAL);

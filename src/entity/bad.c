@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   bad.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:33:33 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/01 18:21:13 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/05 22:07:24 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
- int	bad_in_wall(t_data *sl, t_entity *e, int x, int y)
+static int	bad_in_wall(t_data *sl, t_entity *e, int x, int y)
 {
 	int	next_x;
 	int	next_y;
@@ -31,9 +31,10 @@
 		collision = 1;
 	return (collision);
 }
- int	move_bad(t_data *sl, t_entity *e, int x, int y)
+
+static int	move_bad(t_data *sl, t_entity *e, int x, int y)
 {
-	static unsigned int delay_col;
+	static unsigned int	delay_col;
 
 	if (!map_collision(sl, e, x, y) || delay_col > 50)
 	{
@@ -47,7 +48,7 @@
 	return (0);
 }
 
- void	bad_action(t_data *sl, t_entity *e)
+static void	bad_action(t_data *sl, t_entity *e)
 {
 	if (e->inmove && sl->pl.active)
 	{
@@ -87,17 +88,17 @@ void	bad_manager(t_data *sl, t_entity *e)
 		e->dir = 5;
 		if (e->pos.y < sl->pl.pos.y)
 			e->dir = 0;
-		if (e->pos.y > sl->pl.pos.y + sl->pl.h / 2)
+		if (e->pos.y > sl->pl.pos.y + sl->pl.h * 0.5)
 			e->dir = 1;
 		if (e->dir != 5)
 			bad_action(sl, e);
 		if (!sl->pl.active)
-			return;
+			return ;
 		if (e->pos.x < sl->pl.pos.x)
 			e->dir = 2;
-		if (e->pos.x > sl->pl.pos.x + sl->pl.w / 2)
+		if (e->pos.x > sl->pl.pos.x + sl->pl.w * 0.5)
 			e->dir = 3;
-		if (e->dir != 0 && e->dir !=1)
+		if (e->dir != 0 && e->dir != 1)
 			bad_action(sl, e);
 	}
 	time++;
