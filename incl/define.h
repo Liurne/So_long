@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:09:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/25 01:43:54 by liurne           ###   ########.fr       */
+/*   Updated: 2024/03/25 16:54:14 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ typedef struct s_data
 	int		nb_dogs_active;
 	t_entity	pl;
 	t_entity	bad;
+	t_entity	duck;
 	t_entity	*dogs;
 	t_entity	**entities;
 	t_img		tex_pl[5][4];
