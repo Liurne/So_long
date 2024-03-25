@@ -6,7 +6,7 @@
 /*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:38:04 by liurne            #+#    #+#             */
-/*   Updated: 2024/03/05 22:08:43 by liurne           ###   ########.fr       */
+/*   Updated: 2024/03/25 02:04:43 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	move_player(t_data *sl, int x, int y, int dir)
 {
 	sl->pl.dir = dir;
 	sl->pl.inmove = 1;
-	if (!map_collision(sl, &(sl->pl), x, y))
+	if (!map_collision(sl, &(sl->pl), x, y) && (x || y))
 	{
 		sl->pl.dist += 10;
 		if (sl->pl.dist >= 128)

@@ -1,20 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dog.c                                              :+:      :+:    :+:   */
+/*   duck.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/12 15:58:03 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/25 01:57:23 by liurne           ###   ########.fr       */
+/*   Created: 2024/03/25 16:36:26 by liurne            #+#    #+#             */
+/*   Updated: 2024/03/25 16:39:35 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	move_dog(t_data *sl, t_entity *e, int x, int y)
+int	duck_collision(t_data *sl, t_entity *e, int x, int y)
 {
-	if (!map_collision(sl, e, x, y))
+	int	next_x;
+	int	next_y;
+	int	collision;
+
+	collision = 0;
+	next_x = e->pos.x + x + e->tpos.x;
+	next_y = e->pos.y + y + e->tpos.y;
+	if (get_tile(sl, next_x / 128, next_y / 128) != '0')
+		collision += collision_action(sl, e, next_x / 128, next_y / 128);
+	if (get_tile(sl, next_x / 128, (next_y + e->h) / 128) != '0')
+		collision += collision_action(sl, e, next_x / 128, (next_y + e->h)
+				/ 128);
+	if (get_tile(sl, (next_x + e->w) / 128, next_y / 128) != '0')
+		collision += collision_action(sl, e, (next_x + e->w) / 128, next_y
+				/ 128);
+	if (get_tile(sl, (next_x + e->w) / 128, (next_y + e->h) / 128) != '0')
+		collision += collision_action(sl, e, (next_x + e->w) / 128,
+				(next_y + e->h) / 128);
+	return (collision);
+}
+
+static int	duck_move(t_data *sl, t_entity *e, int x, int y)
+{
+	if (!duck_collision(sl, e, x, y))
 	{
 		e->pos.x += x;
 		e->pos.y += y;
@@ -28,35 +51,7 @@ static int	move_dog(t_data *sl, t_entity *e, int x, int y)
 	return (0);
 }
 
-static void	dog_pet(t_data *sl, t_entity *pl, t_entity *e)
-{
-	if (e->active)
-	{
-		ft_putstr_fd("NEED...TO...PEEEEEEEET!!\n", 1);
-		sl->nb_dogs_active--;
-		e->active = 0;
-		e->inmove = 0;
-		e->dir = 4;
-		e->animation = 0;
-		ft_setvec(&e->pos, (e->pos.x + pl->pos.x) * 0.5, \
-			(e->pos.y + pl->pos.y) * 0.5);
-		ft_setvec(&pl->pos, e->pos.x + 1, e->pos.y + 1);
-		if (!sl->is_night)
-			reset_move(sl);
-		if (!sl->nb_dogs_active && get_tile(sl, sl->map.end.x, \
-			sl->map.end.y) != 'F')
-		{
-			set_tile(sl, sl->map.end.x, sl->map.end.y, 'F');
-			reload_tile_img(sl, sl->map.end.x * 128, sl->map.end.y * 128);
-			ft_putstr_fd("The house is open!!\n", 1);
-		}
-	}
-	move_player(sl, 0, 0, 4);
-	pl->animation = 0;
-	pl->inmove = 0;
-}
-
-static void	dog_action(t_data *sl, t_entity *e, int time)
+static void	duck_action(t_data *sl, t_entity *e, int time)
 {
 	if (e->inmove && !(time % 3))
 	{
@@ -73,7 +68,7 @@ static void	dog_action(t_data *sl, t_entity *e, int time)
 		dog_pet(sl, &sl->pl, e);
 }
 
-void	dog_manager(t_data *sl, t_entity *e)
+void	duck_manager(t_data *sl, t_entity *e)
 {
 	static int	r;
 
@@ -91,7 +86,5 @@ void	dog_manager(t_data *sl, t_entity *e)
 		}
 		dog_action(sl, e, e->delay);
 	}
-	else if (entity_collision(&(sl->pl), e))
-		dog_pet(sl, &sl->pl, e);
 	e->delay++;
 }

@@ -6,7 +6,7 @@
 /*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 16:03:02 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/05 22:20:18 by liurne           ###   ########.fr       */
+/*   Updated: 2024/03/25 01:32:27 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,7 @@ static void	init_pl(t_entity *e, int x, int y)
 	e->tpos.y = 32;
 	e->w = 48;
 	e->h = 92;
-	e->dir = 0;
-	e->nb_mv = 0;
-	e->dist = 0;
 	e->delay = 150;
-	e->inmove = 0;
-	e->animation = 0;
 }
 
 static void	init_bad(t_entity *e, int x, int y)
@@ -60,12 +55,6 @@ static void	init_bad(t_entity *e, int x, int y)
 	e->tpos.y = 32;
 	e->w = 64;
 	e->h = 92;
-	e->dir = 0;
-	e->nb_mv = 0;
-	e->dist = 0;
-	e->delay = 0;
-	e->inmove = 0;
-	e->animation = 0;
 }
 
 static void	init_dog(t_entity *e, int x, int y, int nb)
@@ -79,11 +68,7 @@ static void	init_dog(t_entity *e, int x, int y, int nb)
 	e->tpos.y = 32;
 	e->w = 64;
 	e->h = 92;
-	e->dir = 0;
-	e->nb_mv = 0;
-	e->dist = 0;
-	e->inmove = 0;
-	e->animation = 0;
+	e->delay = 50;
 }
 
 void	init_entity(t_data *sl, char tile, int x, int y)

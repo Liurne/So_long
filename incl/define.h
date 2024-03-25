@@ -6,7 +6,7 @@
 /*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:09:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/05 23:12:50 by liurne           ###   ########.fr       */
+/*   Updated: 2024/03/25 01:43:54 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define WIN_W 1280
 # define WIN_H 768
 # define C_NIGHT 0xFF001835
-# define C_DEAD 0xFF400018
+# define C_DEAD 0xFF350C0C//400018
 
 typedef struct s_img
 {

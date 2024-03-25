@@ -6,7 +6,7 @@
 #    By: liurne <liurne@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 17:47:33 by jcoquard          #+#    #+#              #
-#    Updated: 2024/03/05 21:27:57 by liurne           ###   ########.fr        #
+#    Updated: 2024/03/25 01:37:48 by liurne           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -134,8 +134,8 @@ $(MLXLIB_A): force
 # ---- Variables Rules ---- #
 
 ${NAME}	:	${OBJS}
-			@ ${CC} ${CFLAGS} -o ${NAME} ${OBJS} -L${DIR_MLX} -lmlx_Linux -L/usr/lib -Iminilibx -lXext -lX11 -lm -lz && echo "${GREEN}\n* ${NAME} compilation completed !!!\n${END}" || ${MAKE} sus
-
+			@ ${CC} ${CFLAGS} -o ${NAME} ${OBJS} -L${DIR_MLX} -lmlx_Linux -L/usr/lib -Iminilibx -lXext -lX11 -lm  && echo "${GREEN}\n* ${NAME} compilation completed !!!\n${END}" || ${MAKE} sus
+#-lz
 # ---- Compiled Rules ---- #
 
 -include ${DEPS}

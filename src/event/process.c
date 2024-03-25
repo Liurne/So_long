@@ -6,7 +6,7 @@
 /*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:29:51 by liurne            #+#    #+#             */
-/*   Updated: 2024/03/05 23:21:10 by liurne           ###   ########.fr       */
+/*   Updated: 2024/03/25 02:14:04 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	bad_end(t_data *sl)
 		sl->bad.animation = 2;
 		sl->time = 0;
 	}
-	//sl->col_sky = C_DEAD;
+	//sl->col_sky = transparence(C_NIGHT, C_DEAD, 50);
 	sl->time++;
 }
 
