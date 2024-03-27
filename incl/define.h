@@ -6,7 +6,7 @@
 /*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:09:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/26 22:33:12 by liurne           ###   ########.fr       */
+/*   Updated: 2024/03/27 01:20:34 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ typedef struct s_data
 	int		nb_dogs_active;
 	t_entity	pl;
 	t_entity	bad;
+	t_entity	duck;
 	t_entity	*dogs;
 	t_entity	**entities;
 	t_img		tex_pl[5][4];
