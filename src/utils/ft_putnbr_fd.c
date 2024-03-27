@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 20:14:33 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/05 21:31:37 by liurne           ###   ########.fr       */
+/*   Updated: 2024/03/26 18:04:10 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_putnbr_fd(int n, int fd)
 	int		tmp;
 
 	c = 0;
+	tmp = 0;
 	if (n == -2147483648)
 		tmp += write(fd, "-2147483648", 11);
 	else
