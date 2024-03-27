@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   world_border.c                                     :+:      :+:    :+:   */
+/*   map_tmp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/16 03:32:30 by liurne            #+#    #+#             */
-/*   Updated: 2024/03/05 21:45:45 by liurne           ###   ########.fr       */
+/*   Created: 2024/03/26 22:37:03 by liurne            #+#    #+#             */
+/*   Updated: 2024/03/27 00:55:37 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	how_many_fborder(t_data *sl, int x, int y)
 	return (tmp);
 }
 
-void	fborder1(t_data *sl, t_map *map, int x, int y)
+t_img*	fborder1(t_data *sl, t_map *map, int x, int y)
 {
 	int	cx;
 	int	cy;
@@ -60,16 +60,17 @@ void	fborder1(t_data *sl, t_map *map, int x, int y)
 	cx = x / 128;
 	cy = y / 128;
 	if (get_tile(sl, cx + 1, cy) == '2')
-		put_pixelmap(map, x, y, 28);
+		return (&map->tex[28]);
 	else if (get_tile(sl, cx - 1, cy) == '2')
-		put_pixelmap(map, x, y, 27);
+		return (&map->tex[27]);
 	else if (get_tile(sl, cx, cy + 1) == '2')
-		put_pixelmap(map, x, y, 26);
+		return (&map->tex[26]);
 	else if (get_tile(sl, cx, cy - 1) == '2')
-		put_pixelmap(map, x, y, 29);
+		return (&map->tex[29]);
+	return (&map->tex[22]);
 }
 
-void	fborder2(t_data *sl, t_map *map, int x, int y)
+t_img*	fborder2(t_data *sl, t_map *map, int x, int y)
 {
 	int	cx;
 	int	cy;
@@ -77,28 +78,29 @@ void	fborder2(t_data *sl, t_map *map, int x, int y)
 	cx = x / 128;
 	cy = y / 128;
 	if (get_tile(sl, cx + 1, cy) == '2' && get_tile(sl, cx - 1, cy) == '2')
-		put_pixelmap(map, x, y, 13);
+		return (&map->tex[13]);
 	else if (get_tile(sl, cx, cy + 1) == '2' && get_tile(sl, cx, cy - 1) == '2')
-		put_pixelmap(map, x, y, 14);
+		return (&map->tex[14]);
 	else if (get_tile(sl, cx + 1, cy) == '2' && get_tile(sl, cx, cy - 1) == '2' && get_tile(sl, cx + 1, cy - 1) == '2')
-		put_pixelmap(map, x, y, 18);
+		return (&map->tex[18]);
 	else if (get_tile(sl, cx + 1, cy) == '2' && get_tile(sl, cx, cy + 1) == '2' && get_tile(sl, cx + 1, cy + 1) == '2')
-		put_pixelmap(map, x, y, 17);
+		return (&map->tex[17]);
 	else if (get_tile(sl, cx - 1, cy) == '2' && get_tile(sl, cx, cy + 1) == '2' && get_tile(sl, cx - 1, cy + 1) == '2')
-		put_pixelmap(map, x, y, 15);
+		return (&map->tex[15]);
 	else if (get_tile(sl, cx - 1, cy) == '2' && get_tile(sl, cx, cy - 1) == '2' && get_tile(sl, cx - 1, cy - 1) == '2')
-		put_pixelmap(map, x, y, 16);
+		return (&map->tex[16]);
 	else if (get_tile(sl, cx + 1, cy) == '2' && get_tile(sl, cx, cy + 1) == '2')
-		put_pixelmap(map, x, y, 37);
+		return (&map->tex[37]);
 	else if (get_tile(sl, cx + 1, cy) == '2' && get_tile(sl, cx, cy - 1) == '2')
-		put_pixelmap(map, x, y, 35);
+		return (&map->tex[35]);
 	else if (get_tile(sl, cx - 1, cy) == '2' && get_tile(sl, cx, cy + 1) == '2')
-		put_pixelmap(map, x, y, 36);
+		return (&map->tex[36]);
 	else if (get_tile(sl, cx - 1, cy) == '2' && get_tile(sl, cx, cy - 1) == '2')
-		put_pixelmap(map, x, y, 34);
+		return (&map->tex[34]);
+	return (&map->tex[22]);
 }
 
-void	fborder3(t_data *sl, t_map *map, int x, int y)
+t_img*	fborder3(t_data *sl, t_map *map, int x, int y)
 {
 	int	cx;
 	int	cy;
@@ -108,50 +110,51 @@ void	fborder3(t_data *sl, t_map *map, int x, int y)
 	if (get_tile(sl, cx + 1, cy) == '2' && get_tile(sl, cx - 1, cy) == '2' && get_tile(sl, cx, cy + 1) == '2')
 	{
 		if (get_tile(sl, cx + 1, cy + 1) != '2' && get_tile(sl, cx - 1, cy + 1) != '2')
-			put_pixelmap(map, x, y, 38);
+			return (&map->tex[38]);
 		else if (get_tile(sl, cx + 1, cy + 1) != '2')
-			put_pixelmap(map, x, y, 42);
+			return (&map->tex[42]);
 		else if (get_tile(sl, cx - 1, cy + 1) != '2')
-			put_pixelmap(map, x, y, 43);
+			return (&map->tex[43]);
 		else
-			put_pixelmap(map, x, y, 5);
+			return (&map->tex[5]);
 	}
 	else if (get_tile(sl, cx + 1, cy) == '2' && get_tile(sl, cx - 1, cy) == '2' && get_tile(sl, cx, cy - 1) == '2')
 	{
 		if (get_tile(sl, cx + 1, cy - 1) != '2' && get_tile(sl, cx - 1, cy - 1) != '2')
-			put_pixelmap(map, x, y, 39);
+			return (&map->tex[39]);
 		else if (get_tile(sl, cx + 1, cy - 1) != '2')
-			put_pixelmap(map, x, y, 48);
+			return (&map->tex[48]);
 		else if (get_tile(sl, cx - 1, cy - 1) != '2')
-			put_pixelmap(map, x, y, 49);
+			return (&map->tex[49]);
 		else
-			put_pixelmap(map, x, y, 6);
+			return (&map->tex[6]);
 	}
 	else if (get_tile(sl, cx, cy + 1) == '2' && get_tile(sl, cx, cy - 1) == '2' && get_tile(sl, cx + 1, cy) == '2')
 	{
 		if (get_tile(sl, cx + 1, cy + 1) != '2' && get_tile(sl, cx + 1, cy - 1) != '2')
-			put_pixelmap(map, x, y, 41);
+			return (&map->tex[41]);
 		else if (get_tile(sl, cx + 1, cy + 1) != '2')
-			put_pixelmap(map, x, y, 46);
+			return (&map->tex[46]);
 		else if (get_tile(sl, cx + 1, cy - 1) != '2')
-			put_pixelmap(map, x, y, 47);
+			return (&map->tex[47]);
 		else
-			put_pixelmap(map, x, y, 8);
+			return (&map->tex[8]);
 	}
 	else if (get_tile(sl, cx, cy + 1) == '2' && get_tile(sl, cx, cy - 1) == '2' && get_tile(sl, cx - 1, cy) == '2')
 	{
 		if (get_tile(sl, cx - 1, cy + 1) != '2' && get_tile(sl, cx - 1, cy - 1) != '2')
-			put_pixelmap(map, x, y, 40);
+			return (&map->tex[40]);
 		else if (get_tile(sl, cx - 1, cy + 1) != '2')
-			put_pixelmap(map, x, y, 44);
+			return (&map->tex[44]);
 		else if (get_tile(sl, cx - 1, cy - 1) != '2')
-			put_pixelmap(map, x, y, 45);
+			return (&map->tex[45]);
 		else
-			put_pixelmap(map, x, y, 7);
+			return (&map->tex[7]);
 	}
+	return (&map->tex[22]);
 }
 
-void	fborder4(t_data *sl, t_map *map, int x, int y)
+t_img*	fborder4(t_data *sl, t_map *map, int x, int y)
 {
 	int	cx;
 	int	cy;
@@ -163,42 +166,43 @@ void	fborder4(t_data *sl, t_map *map, int x, int y)
 	if (wall == 7)
 	{
 		if (get_tile(sl, cx + 1, cy+ 1) != '2')
-			put_pixelmap(map, x, y, 11);
+			return (&map->tex[11]);
 		else if (get_tile(sl, cx - 1, cy - 1) != '2')
-			put_pixelmap(map, x, y, 9);
+			return (&map->tex[9]);
 		else if (get_tile(sl, cx -1, cy + 1) != '2')
-			put_pixelmap(map, x, y, 12);
+			return (&map->tex[12]);
 		else if (get_tile(sl, cx + 1, cy - 1) != '2')
-			put_pixelmap(map, x, y, 10);
+			return (&map->tex[10]);
 	}
 	else if (wall == 6)
 	{
 		if (get_tile(sl, cx + 1, cy + 1) == '2' && get_tile(sl, cx - 1, cy - 1) == '2')
-			put_pixelmap(map, x, y, 20);
+			return (&map->tex[20]);
 		else if (get_tile(sl, cx + 1, cy - 1) == '2' && get_tile(sl, cx - 1, cy + 1) == '2')
-			put_pixelmap(map, x, y, 21);
+			return (&map->tex[21]);
 		else if (get_tile(sl, cx + 1, cy - 1) == '2' && get_tile(sl, cx - 1, cy - 1) == '2')
-			put_pixelmap(map, x, y, 33);
+			return (&map->tex[33]);
 		else if (get_tile(sl, cx + 1, cy + 1) == '2' && get_tile(sl, cx - 1, cy + 1) == '2')
-			put_pixelmap(map, x, y, 30);
+			return (&map->tex[30]);
 		else if (get_tile(sl, cx + 1, cy + 1) == '2' && get_tile(sl, cx + 1, cy - 1) == '2')
-			put_pixelmap(map, x, y, 32);
+			return (&map->tex[32]);
 		else if (get_tile(sl, cx - 1, cy + 1) == '2' && get_tile(sl, cx - 1, cy - 1) == '2')
-			put_pixelmap(map, x, y, 31);
+			return (&map->tex[31]);
 	}
 	else if (wall == 5)
 	{
 		if (get_tile(sl, cx + 1, cy + 1) == '2')
-			put_pixelmap(map, x, y, 25);
+			return (&map->tex[25]);
 		else if (get_tile(sl, cx + 1, cy - 1) == '2')
-			put_pixelmap(map, x, y, 23);
+			return (&map->tex[23]);
 		else if (get_tile(sl, cx - 1, cy + 1) == '2')
-			put_pixelmap(map, x, y, 24);
+			return (&map->tex[24]);
 		else if (get_tile(sl, cx - 1, cy - 1) == '2')
-			put_pixelmap(map, x, y, 22);
+			return (&map->tex[22]);
 	}
+	return (&map->tex[22]);
 }
-void	which_border(t_data *sl, t_map *map, int x, int y)
+t_img*	which_border(t_data *sl, t_map *map, int x, int y)
 {
 	int	fwall;
 	int	wall;
@@ -206,15 +210,84 @@ void	which_border(t_data *sl, t_map *map, int x, int y)
 	fwall = how_many_fborder(sl, x/128, y/128);
 	wall = how_many_border(sl, x/128, y/128);
 	if (fwall == 1)
-		fborder1(sl, map, x, y);
+		return(fborder1(sl, map, x, y));
 	else if	(fwall == 2)
-		fborder2(sl, map, x, y);
+		return(fborder2(sl, map, x, y));
 	else if	(fwall == 3)
-		fborder3(sl, map, x, y);
+		return(fborder3(sl, map, x, y));
 	else if (fwall == 4 && wall == 4)
-		put_pixelmap(map, x, y, 50);
+		return (&map->tex[50]);
 	else if (wall == 8)
-		put_pixelmap(map, x, y, 51);
+		return (&map->tex[51]);
 	else
-		fborder4(sl, map, x, y);
+		return(fborder4(sl, map, x, y));
+}
+
+t_img*	which_tile(t_data *sl, int x, int y)
+{
+	if (get_tile(sl, x / 128, y / 128) == '0')
+	{
+		if (((x / 128) + (y / 128)) % 5 == 4)
+			return (&sl->map.tex[1]);
+		else if (((x / 128) + (y / 128)) % 5 == 1)
+			return (&sl->map.tex[2]);
+		else
+			return (&sl->map.tex[0]);
+	}
+	if (get_tile(sl, x / 128, y / 128) == '2')
+		return (which_border(sl, &(sl->map), x, y));
+	else if (get_tile(sl, x / 128, y / 128) == '1')
+		return (&sl->map.tex[3 + (x / 128 + y / 128) % 2]);
+	else if (get_tile(sl, x / 128, y / 128) == 'C')
+		return (&sl->map.tex[55]);
+	else if (get_tile(sl, x / 128, y / 128) == 'I')
+		return (&sl->map.tex[53]);
+	else if (get_tile(sl, x / 128, y / 128) == 'E')
+		return (&sl->map.tex[52]);
+	else if (get_tile(sl, x / 128, y / 128) == 'F')
+		return (&sl->map.tex[54]);
+	else
+		return (&sl->map.tex[55]);
+}
+
+void	reload_tile_img(t_data *sl, int x, int y)
+{
+	int	tmp1;
+	int	tmp2;
+
+	tmp1 = x;
+	tmp2 = y;
+	while (x < tmp1 + 128)
+	{
+		y = tmp2;
+		while (y < tmp2 + 128)
+		{
+			which_tile (sl, x, y);
+			y++;
+		}
+		x++;
+	}
+}
+
+int	map_to_img(t_data *sl)
+{
+	t_vec	pos;
+	t_rect	src;
+	t_rect	dst;
+
+	new_img(sl, &(sl->map.img), sl->map.w * 128, sl->map.h * 128);
+	ft_setvec(&pos, 0, 0);
+	ft_setrect(&src, pos, 32, 32);
+	while (pos.x < sl->map.w)
+	{
+		pos.y = 0;
+		while (pos.y < sl->map.h)
+		{
+			ft_setrect(&dst, ft_vec(pos.x * 128, pos.y * 128), 128, 128);
+			put_img_to_img(&sl->map.img, which_tile(sl, pos.x, pos.y), &src, &dst);
+			pos.y++;
+		}
+		pos.x++;
+	}
+	return (0);
 }

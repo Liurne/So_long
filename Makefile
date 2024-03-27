@@ -6,7 +6,7 @@
 #    By: liurne <liurne@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 17:47:33 by jcoquard          #+#    #+#              #
-#    Updated: 2024/03/25 01:37:48 by liurne           ###   ########.fr        #
+#    Updated: 2024/03/26 23:11:25 by liurne           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,7 @@ SRCS	=	$(DIR_SRCS)main.c \
 			$(DIR_UTILS)ft_strjoin.c \
 			$(DIR_UTILS)ft_strlen.c \
 			$(DIR_UTILS)ft_vec.c \
+			$(DIR_UTILS)ft_rect.c \
 			$(DIR_CORE)window.c \
 			$(DIR_CORE)image.c \
 			$(DIR_CORE)load_img.c \
@@ -97,9 +98,10 @@ SRCS	=	$(DIR_SRCS)main.c \
 			$(DIR_ENTITY)player.c \
 			$(DIR_ENTITY)dog.c \
 			$(DIR_ENTITY)bad.c \
-			$(DIR_MAP)world.c \
-			$(DIR_MAP)world_border.c \
-			$(DIR_MAP)world_img.c \
+			$(DIR_MAP)map.c \
+			$(DIR_MAP)map_tmp.c \
+#			$(DIR_MAP)map_border.c \
+			$(DIR_MAP)map_img.c \
 
 
 OBJS = ${addprefix ${DIR_OBJS},${SRCS:.c=.o}}

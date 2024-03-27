@@ -6,7 +6,7 @@
 /*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:09:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/25 19:28:44 by liurne           ###   ########.fr       */
+/*   Updated: 2024/03/26 22:33:12 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,13 @@ typedef struct s_vec
 	int	x;
 	int	y;
 }	t_vec;
+
+typedef struct s_rect
+{
+	t_vec	pos;
+	int	w;
+	int	h;
+}	t_rect;
 
 typedef enum e_status
 {

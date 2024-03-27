@@ -6,7 +6,7 @@
 /*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 17:52:39 by liurne            #+#    #+#             */
-/*   Updated: 2024/03/25 01:16:03 by liurne           ###   ########.fr       */
+/*   Updated: 2024/03/27 01:16:20 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,29 @@ int	transparence(int c1, int c2, int t)
 	if (b > 255)
 		b = 255;
 	return (255 << 24 | r << 16 | g << 8 | b);
+}
+
+void	put_img_to_img(t_img *img1, t_img *img2, t_rect *src, t_rect *dst)
+{
+	int	i;
+	int	j;
+	int	tmp_x;
+	int	tmp_y;
+	printf("pos rect map:(%d,%d)\n", dst->pos.x, dst->pos.y);
+	i = 0;
+	while (i < dst->w)
+	{
+		j = 0;
+		while (j < dst->h)
+		{
+			tmp_x = src->pos.x + (i * src->w) / dst->w;
+			tmp_y = src->pos.y + (j * src->h) / dst->h;
+			put_pixel(img1, i + dst->pos.x, j + dst->pos.y,
+				get_pixel(img2, tmp_x, tmp_y));
+			j++;
+		}
+		i++;
+	}
 }
 
 void	animation(t_data *sl)
