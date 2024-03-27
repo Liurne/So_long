@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:36:26 by liurne            #+#    #+#             */
-/*   Updated: 2024/03/25 16:53:15 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/27 18:25:04 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ static int	duck_collision(t_data *sl, t_entity *e, int x, int y)
 
 	next_x = e->pos.x + x + e->tpos.x;
 	next_y = e->pos.y + y + e->tpos.y;
-	if (get_tile(sl, next_x / 128, next_y / 128) != '2')
+	if (get_tile(&sl->map, next_x / 128, next_y / 128) != '2')
 		return (1);
-	if (get_tile(sl, next_x / 128, (next_y + e->h) / 128) != '2')
+	if (get_tile(&sl->map, next_x / 128, (next_y + e->h) / 128) != '2')
 		return (1);
-	if (get_tile(sl, (next_x + e->w) / 128, next_y / 128) != '2')
+	if (get_tile(&sl->map, (next_x + e->w) / 128, next_y / 128) != '2')
 		return (1);
-	if (get_tile(sl, (next_x + e->w) / 128, (next_y + e->h) / 128) != '2')
+	if (get_tile(&sl->map, (next_x + e->w) / 128, (next_y + e->h) / 128) != '2')
 		return (1);
 	return (0);
 }

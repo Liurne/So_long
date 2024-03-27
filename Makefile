@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: liurne <liurne@student.42.fr>              +#+  +:+       +#+         #
+#    By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 17:47:33 by jcoquard          #+#    #+#              #
-#    Updated: 2024/03/25 01:37:48 by liurne           ###   ########.fr        #
+#    Updated: 2024/03/27 18:34:10 by jcoquard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,9 +80,11 @@ SRCS	=	$(DIR_SRCS)main.c \
 			$(DIR_UTILS)ft_strjoin.c \
 			$(DIR_UTILS)ft_strlen.c \
 			$(DIR_UTILS)ft_vec.c \
+			$(DIR_UTILS)ft_rect.c \
 			$(DIR_CORE)window.c \
 			$(DIR_CORE)image.c \
 			$(DIR_CORE)load_img.c \
+			$(DIR_CORE)load_map_img.c \
 			$(DIR_CORE)destroy_img.c \
 			$(DIR_PARS)load_map.c \
 			$(DIR_PARS)parsing_utils.c \
@@ -97,9 +99,10 @@ SRCS	=	$(DIR_SRCS)main.c \
 			$(DIR_ENTITY)player.c \
 			$(DIR_ENTITY)dog.c \
 			$(DIR_ENTITY)bad.c \
-			$(DIR_MAP)world.c \
-			$(DIR_MAP)world_border.c \
-			$(DIR_MAP)world_img.c \
+			$(DIR_MAP)map.c \
+			$(DIR_MAP)map_img.c \
+			$(DIR_MAP)map_img_border1.c \
+			$(DIR_MAP)map_border_utils.c \
 
 
 OBJS = ${addprefix ${DIR_OBJS},${SRCS:.c=.o}}

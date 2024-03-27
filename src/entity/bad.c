@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bad.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:33:33 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/05 22:07:24 by liurne           ###   ########.fr       */
+/*   Updated: 2024/03/27 18:24:36 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ static int	bad_in_wall(t_data *sl, t_entity *e, int x, int y)
 	collision = 0;
 	next_x = e->pos.x + x + e->tpos.x;
 	next_y = e->pos.y + y + e->tpos.y;
-	if (get_tile(sl, next_x / 128, next_y / 128) != '0')
+	if (get_tile(&sl->map, next_x / 128, next_y / 128) != '0')
 		collision = 1;
-	if (get_tile(sl, next_x / 128, (next_y + e->h) / 128) != '0')
+	if (get_tile(&sl->map, next_x / 128, (next_y + e->h) / 128) != '0')
 		collision = 1;
-	if (get_tile(sl, (next_x + e->w) / 128, next_y / 128) != '0')
+	if (get_tile(&sl->map, (next_x + e->w) / 128, next_y / 128) != '0')
 		collision = 1;
-	if (get_tile(sl, (next_x + e->w) / 128, (next_y + e->h) / 128) != '0')
+	if (get_tile(&sl->map, (next_x + e->w) / 128, (next_y + e->h) / 128) != '0')
 		collision = 1;
 	return (collision);
 }

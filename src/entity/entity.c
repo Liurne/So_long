@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   entity.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 15:35:48 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/05 22:00:55 by liurne           ###   ########.fr       */
+/*   Updated: 2024/03/27 18:25:18 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,18 @@ int	entity_collision(t_entity *e1, t_entity *e2)
 
 static int	collision_action(t_data *sl, t_entity *e, int x, int y)
 {
+	char tile;
+
+	tile = get_tile(&sl->map, x, y);
 	if (e->type == PLAYER)
 	{
-		if (get_tile(sl, x, y) == 'F')
+		if (tile == 'F')
 		{
 			ft_putstr_fd("You Won !!\n", 1);
 			close_window(sl);
 		}
 	}
-	if (get_tile(sl, x, y) == '1' || get_tile(sl, x, y) == '2')
+	if (tile == '1' || tile == '2' || tile == 'E')
 		return (1);
 	return (0);
 }
@@ -62,15 +65,15 @@ int	map_collision(t_data *sl, t_entity *e, int x, int y)
 	collision = 0;
 	next_x = e->pos.x + x + e->tpos.x;
 	next_y = e->pos.y + y + e->tpos.y;
-	if (get_tile(sl, next_x / 128, next_y / 128) != '0')
+	if (get_tile(&sl->map, next_x / 128, next_y / 128) != '0')
 		collision += collision_action(sl, e, next_x / 128, next_y / 128);
-	if (get_tile(sl, next_x / 128, (next_y + e->h) / 128) != '0')
+	if (get_tile(&sl->map, next_x / 128, (next_y + e->h) / 128) != '0')
 		collision += collision_action(sl, e, next_x / 128, (next_y + e->h)
 				/ 128);
-	if (get_tile(sl, (next_x + e->w) / 128, next_y / 128) != '0')
+	if (get_tile(&sl->map, (next_x + e->w) / 128, next_y / 128) != '0')
 		collision += collision_action(sl, e, (next_x + e->w) / 128, next_y
 				/ 128);
-	if (get_tile(sl, (next_x + e->w) / 128, (next_y + e->h) / 128) != '0')
+	if (get_tile(&sl->map, (next_x + e->w) / 128, (next_y + e->h) / 128) != '0')
 		collision += collision_action(sl, e, (next_x + e->w) / 128,
 				(next_y + e->h) / 128);
 	return (collision);

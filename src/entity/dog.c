@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dog.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:58:03 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/25 01:57:23 by liurne           ###   ########.fr       */
+/*   Updated: 2024/03/27 18:37:25 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ static void	dog_pet(t_data *sl, t_entity *pl, t_entity *e)
 		ft_setvec(&pl->pos, e->pos.x + 1, e->pos.y + 1);
 		if (!sl->is_night)
 			reset_move(sl);
-		if (!sl->nb_dogs_active && get_tile(sl, sl->map.end.x, \
+		if (!sl->nb_dogs_active && get_tile(&sl->map, sl->map.end.x, \
 			sl->map.end.y) != 'F')
 		{
-			set_tile(sl, sl->map.end.x, sl->map.end.y, 'F');
-			reload_tile_img(sl, sl->map.end.x * 128, sl->map.end.y * 128);
+			set_tile(&sl->map, sl->map.end.x, sl->map.end.y, 'F');
+			reload_tile_img(&sl->map, sl->map.end.x, sl->map.end.y);
 			ft_putstr_fd("The house is open!!\n", 1);
 		}
 	}

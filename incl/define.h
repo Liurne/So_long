@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:09:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/25 16:54:14 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/03/27 01:20:34 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,13 @@ typedef struct s_vec
 	int	x;
 	int	y;
 }	t_vec;
+
+typedef struct s_rect
+{
+	t_vec	pos;
+	int	w;
+	int	h;
+}	t_rect;
 
 typedef enum e_status
 {
@@ -126,6 +133,7 @@ typedef struct s_data
 	t_img		tex_pl[5][4];
 	t_img		tex_dog[5][4];
 	t_img		tex_wolf[5][4];
+	t_img		tex_duck[5][4];
 	int			is_night;
 	int			night;
 	int			col_sky;

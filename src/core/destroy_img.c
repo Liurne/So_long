@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   destroy_img.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 14:25:14 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/05 21:49:50 by liurne           ###   ########.fr       */
+/*   Updated: 2024/03/27 16:30:49 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,8 +135,6 @@ static void	destroy_img_map(t_data *sl)
 	destroy_img(sl, &(sl->map.tex[52]));
 	destroy_img(sl, &(sl->map.tex[53]));
 	destroy_img(sl, &(sl->map.tex[54]));
-	destroy_img(sl, &(sl->map.tex[55]));
-	destroy_img(sl, &(sl->map.tex[56]));
 }
 
 void	destroy_all_image(t_data *sl)

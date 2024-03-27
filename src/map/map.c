@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   world.c                                            :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:43:59 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/05 21:47:05 by liurne           ###   ########.fr       */
+/*   Updated: 2024/03/27 18:22:37 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	get_tile(t_data *sl, int x, int y)
+char	get_tile(t_map *map, int x, int y)
 {
-	if (x < sl->map.w && y < sl->map.h && x >= 0 && y >= 0)
-		return (sl->map.map[(y * (sl->map.w + 1)) + x]);
+	if (x < map->w && y < map->h && x >= 0 && y >= 0)
+		return (map->map[(y * (map->w + 1)) + x]);
 	return ('2');
 }
 
-int	set_tile(t_data *sl, int x, int y, char c)
+int	set_tile(t_map *map, int x, int y, char c)
 {
-	if (x < sl->map.w && y < sl->map.h)
+	if (x < map->w && y < map->h)
 	{
-		sl->map.map[(y * (sl->map.w + 1)) + x] = c;
+		map->map[(y * (map->w + 1)) + x] = c;
 		return (1);
 	}
 	else

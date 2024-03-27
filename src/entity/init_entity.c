@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_entity.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 16:03:02 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/25 01:32:27 by liurne           ###   ########.fr       */
+/*   Updated: 2024/03/27 18:29:55 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	init_entity(t_data *sl, char tile, int x, int y)
 		ft_setvec(&sl->map.start, x, y);
 		init_pl(&sl->pl, x, y);
 		init_cam(sl, &sl->pl);
-		set_tile(sl, x, y, '0');
+		set_tile(&sl->map, x, y, '0');
 	}
 	if (tile == 'E')
 	{

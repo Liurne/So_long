@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:34:36 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/05 21:44:22 by liurne           ###   ########.fr       */
+/*   Updated: 2024/03/27 18:32:45 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	parcour_map(t_data *sl)
 		j = -1;
 		while (++j < sl->map.h)
 		{
-			c = get_tile(sl, i, j);
+			c = get_tile(&sl->map, i, j);
 			if (c != 'C' && c != 'P' && c != '1' && c != '0'
 				&& c != 'E' && !c)
 				return (0);
@@ -85,6 +85,11 @@ int	recu_finder(t_data *sl, char *map, int x, int y)
 	if (x >= sl->map.w || x < 0 || y >= sl->map.h || y < 0
 		|| map[(y * (sl->map.w + 1)) + x] == '1')
 		return (0);
+	if (map[(y * (sl->map.w + 1)) + x] == 'E')
+	{
+		map[(y * (sl->map.w + 1)) + x] = '1';
+		return (0);
+	}
 	map[(y * (sl->map.w + 1)) + x] = '1';
 	recu_finder(sl, map, x - 1, y);
 	recu_finder(sl, map, x + 1, y);
@@ -105,6 +110,6 @@ int	verif_map(t_data *sl)
 	recu_finder(sl, tmp, sl->map.start.x, sl->map.start.y);
 	if (is_still(tmp))
 		return (free(tmp), 0);
-	complete_border(sl, 0, 0);
+	complete_border(&sl->map, 0, 0);
 	return (free(tmp), 1);
 }

@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 15:23:48 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/05 22:52:47 by liurne           ###   ########.fr       */
+/*   Updated: 2024/03/27 18:35:13 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	complete_border(t_data *sl, int x, int y)
+void	complete_border(t_map *map, int x, int y)
 {
-	if (x < 0 || y < 0 || x > sl->map.w - 1 || y > sl->map.h - 1)
+	if (x < 0 || y < 0 || x > map->w - 1 || y > map->h - 1)
 		return ;
-	if (get_tile(sl, x, y) == '1')
+	if (get_tile(map, x, y) == '1')
 	{
-		set_tile(sl, x, y, '2');
-		complete_border(sl, x + 1, y);
-		complete_border(sl, x - 1, y);
-		complete_border(sl, x, y + 1);
-		complete_border(sl, x, y - 1);
+		set_tile(map, x, y, '2');
+		complete_border(map, x + 1, y);
+		complete_border(map, x - 1, y);
+		complete_border(map, x, y + 1);
+		complete_border(map, x, y - 1);
 	}
 }
 
@@ -36,7 +36,7 @@ void	dog_alloc(t_data *sl)
 	{
 		y = -1;
 		while (++y < sl->map.h)
-			if (get_tile(sl, x, y) == 'C')
+			if (get_tile(&sl->map, x, y) == 'C')
 				sl->nb_entities++;
 	}
 	sl->nb_dogs_active =sl->nb_entities;
