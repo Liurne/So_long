@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bad.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:33:33 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/27 18:24:36 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/21 20:52:38 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,11 @@ static void	bad_action(t_data *sl, t_entity *e)
 		e->dir = 4;
 		e->animation = 1;
 		sl->pl.dir = 4;
+		sl->pl.inmove = 0;
 		ft_setvec(&sl->pl.pos, (e->pos.x + sl->pl.pos.x) * 0.5, \
 		(e->pos.y + sl->pl.pos.y) * 0.5);
 		ft_setvec(&e->pos, sl->pl.pos.x + 1, sl->pl.pos.y + 1);
-		sl->pl.animation = 1;
+		sl->pl.animation = 2;
 		sl->time = 0;
 		ft_putstr_fd("NIOM NIOM NIOM!!!\n You lost...\n", 1);
 	}

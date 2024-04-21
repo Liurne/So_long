@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 17:52:39 by liurne            #+#    #+#             */
-/*   Updated: 2024/03/27 14:01:16 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/21 20:43:34 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,6 @@ void	animation(t_data *sl)
 	i = -1;
 	while (++i < sl->nb_entities)
 	{
-		if (!sl->entities[i]->inmove)
-			sl->entities[i]->animation = 0;
 		if (sl->entities[i]->inmove && sl->time >= 7)
 			sl->entities[i]->animation = (sl->entities[i]->animation + 1) % 4;
 	}
