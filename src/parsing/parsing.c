@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:34:36 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/27 18:32:45 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/17 18:19:55 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,15 +82,18 @@ int	verif_count(t_data *sl)
 
 int	recu_finder(t_data *sl, char *map, int x, int y)
 {
+	char	*tile;
+
+	tile = &map[(y * (sl->map.w + 1)) + x];
 	if (x >= sl->map.w || x < 0 || y >= sl->map.h || y < 0
-		|| map[(y * (sl->map.w + 1)) + x] == '1')
+		|| *tile == '1' || *tile == '.')
 		return (0);
-	if (map[(y * (sl->map.w + 1)) + x] == 'E')
+	if (*tile == 'E')
 	{
-		map[(y * (sl->map.w + 1)) + x] = '1';
+		*tile = '.';
 		return (0);
 	}
-	map[(y * (sl->map.w + 1)) + x] = '1';
+	*tile = '.';
 	recu_finder(sl, map, x - 1, y);
 	recu_finder(sl, map, x + 1, y);
 	recu_finder(sl, map, x, y - 1);
@@ -111,5 +114,6 @@ int	verif_map(t_data *sl)
 	if (is_still(tmp))
 		return (free(tmp), 0);
 	complete_border(&sl->map, 0, 0);
+	pars_lake(&sl->map, tmp);
 	return (free(tmp), 1);
 }
