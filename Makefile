@@ -6,7 +6,7 @@
 #    By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 17:47:33 by jcoquard          #+#    #+#              #
-#    Updated: 2024/03/27 18:34:10 by jcoquard         ###   ########.fr        #
+#    Updated: 2024/03/28 17:33:03 by jcoquard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,7 +101,7 @@ SRCS	=	$(DIR_SRCS)main.c \
 			$(DIR_ENTITY)bad.c \
 			$(DIR_MAP)map.c \
 			$(DIR_MAP)map_img.c \
-			$(DIR_MAP)map_img_border1.c \
+			$(DIR_MAP)map_img_border.c \
 			$(DIR_MAP)map_border_utils.c \
 
 
@@ -115,7 +115,7 @@ DEPS_FLAGS	= -MMD -MP
 
 CC			= cc
 
-CFLAGS		= ${DEPS_FLAGS} -Wall -Wextra -Werror -g3 -O2 -fsanitize=address
+CFLAGS		= ${DEPS_FLAGS} -Wall -Wextra -Werror -g3 -fsanitize=address #-O2
 
 # ---- Commands ---- #
 
@@ -137,8 +137,8 @@ $(MLXLIB_A): force
 # ---- Variables Rules ---- #
 
 ${NAME}	:	${OBJS}
-			@ ${CC} ${CFLAGS} -o ${NAME} ${OBJS} -L${DIR_MLX} -lmlx_Linux -L/usr/lib -Iminilibx -lXext -lX11 -lm  && echo "${GREEN}\n* ${NAME} compilation completed !!!\n${END}" || ${MAKE} sus
-#-lz
+			@ ${CC} ${CFLAGS} -o ${NAME} ${OBJS} -L${DIR_MLX} -lmlx_Linux -L/usr/lib -Iminilibx -lXext -lX11 -lm -lz && echo "${GREEN}\n* ${NAME} compilation completed !!!\n${END}" || ${MAKE} sus
+
 # ---- Compiled Rules ---- #
 
 -include ${DEPS}
