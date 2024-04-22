@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   process.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:29:51 by liurne            #+#    #+#             */
-/*   Updated: 2024/03/27 14:06:18 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/21 20:51:49 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	bad_end(t_data *sl)
 {
 	if (sl->time > 20)
 	{
-		sl->pl.animation = 2;
+		sl->pl.animation = 3;
 		sl->bad.animation = 2;
 		sl->time = 0;
 	}

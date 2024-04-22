@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 17:52:39 by liurne            #+#    #+#             */
-/*   Updated: 2024/03/27 14:01:16 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/22 15:32:14 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ void	put_img_to_img(t_img *img1, t_img *img2, t_rect *src, t_rect *dst)
 	int	j;
 	int	tmp_x;
 	int	tmp_y;
-	printf("rect dst map:(%d,%d) w:%d h:%d\n", dst->pos.x, dst->pos.y, dst->w, dst->h);
-	printf("rect src map:(%d,%d) w:%d h:%d\n", src->pos.x, src->pos.y, src->w, src->h);
+
 	i = 0;
 	while (i < dst->w)
 	{
@@ -77,8 +76,6 @@ void	animation(t_data *sl)
 	i = -1;
 	while (++i < sl->nb_entities)
 	{
-		if (!sl->entities[i]->inmove)
-			sl->entities[i]->animation = 0;
 		if (sl->entities[i]->inmove && sl->time >= 7)
 			sl->entities[i]->animation = (sl->entities[i]->animation + 1) % 4;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 15:23:48 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/27 18:35:13 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/17 18:15:13 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,42 @@ void	complete_border(t_map *map, int x, int y)
 		complete_border(map, x, y + 1);
 		complete_border(map, x, y - 1);
 	}
+}
+
+void	complete_lake(t_map *map, char *tmp_map, int x, int y)
+{
+	if (x < 0 || y < 0 || x > map->w - 1 || y > map->h - 1)
+		return ;
+	if (tmp_map[(y * (map->w + 1)) + x] == '1' || tmp_map[(y * (map->w + 1)) + x] == '0')
+	{
+		tmp_map[(y * (map->w + 1)) + x] = '.';
+		set_tile(map, x, y, '2');
+		complete_lake(map, tmp_map, x + 1, y);
+		complete_lake(map, tmp_map, x - 1, y);
+		complete_lake(map, tmp_map, x, y + 1);
+		complete_lake(map, tmp_map, x, y - 1);
+	}
+	return ;
+}
+
+void	pars_lake(t_map *map, char *tmp_map)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	while (x < map->w)
+	{
+		y = 0;
+		while (y < map->h)
+		{
+			if (tmp_map[y * (map->w + 1) + x] == '0')
+				complete_lake(map, tmp_map, x, y);
+			y++;
+		}
+		x++;
+	}
+	return ;
 }
 
 void	dog_alloc(t_data *sl)

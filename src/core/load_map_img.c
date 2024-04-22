@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 14:26:10 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/28 17:30:28 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/22 14:22:11 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ static void	map_border_img_1(t_data *sl)
 	load_img(sl, "asset/texture/map/border_river_cross_ul.xpm", &(sl->map.tex[28]));
 	load_img(sl, "asset/texture/map/border_river_cross_ur.xpm", &(sl->map.tex[29]));
 	load_img(sl, "asset/texture/map/border_river_end_d.xpm", &(sl->map.tex[30]));
-	
 }
 
 static void	map_base_img(t_data *sl)

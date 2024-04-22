@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 15:35:48 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/27 18:25:18 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:00:39 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	entity_collision(t_entity *e1, t_entity *e2)
 
 	x1 = e1->pos.x + e1->tpos.x;
 	y1 = e1->pos.y + e1->tpos.y;
-	x2 = e2->pos.x + e1->tpos.x;
-	y2 = e2->pos.y + e1->tpos.y;
+	x2 = e2->pos.x + e2->tpos.x;
+	y2 = e2->pos.y + e2->tpos.y;
 	if ((x1 >= x2 && x1 < x2 + e2->h && y1 >= y2 && y1 < y2 + e2->h)
 		|| (x1 >= x2 && x1 < x2 + e2->h && y1 >= y2 && y1 < y2 + e2->h)
 		|| (x1 + e1->w >= x2 && x1 + e1->w < x2 + e2->w && y1 >= y2 && y1

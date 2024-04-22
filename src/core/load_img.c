@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:36:17 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/28 17:26:39 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/22 14:21:39 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,30 +30,34 @@ static void	load_pl_img(t_data *sl)
 	load_img(sl, "asset/texture/player/pl_left_walk1.xpm", &(sl->tex_pl[3][1]));
 	load_img(sl, "asset/texture/player/pl_left.xpm", &(sl->tex_pl[3][2]));
 	load_img(sl, "asset/texture/player/pl_left_walk2.xpm", &(sl->tex_pl[3][3]));
-	load_img(sl, "asset/texture/player/pl_pet_heart.xpm", &(sl->tex_pl[4][0]));
-	load_img(sl, "asset/texture/player/pl_front.xpm", &(sl->tex_pl[4][1]));
-	load_img(sl, "asset/texture/player/pl_killed.xpm", &(sl->tex_pl[4][2]));
+	load_img(sl, "asset/texture/player/pl_pet_1.xpm", &(sl->tex_pl[4][0]));
+	load_img(sl, "asset/texture/player/pl_pet_2.xpm", &(sl->tex_pl[4][1]));
+	load_img(sl, "asset/texture/player/pl_front.xpm", &(sl->tex_pl[4][2]));
+	load_img(sl, "asset/texture/player/pl_killed.xpm", &(sl->tex_pl[4][3]));
 }
 
 static void	load_dog_img(t_data *sl)
 {
-	load_img(sl, "asset/texture/dog/dog_front.xpm", &(sl->tex_dog[0][0]));
-	load_img(sl, "asset/texture/dog/dog_front_walk1.xpm", &(sl->tex_dog[0][1]));
-	load_img(sl, "asset/texture/dog/dog_front.xpm", &(sl->tex_dog[0][2]));
-	load_img(sl, "asset/texture/dog/dog_front_walk2.xpm", &(sl->tex_dog[0][3]));
-	load_img(sl, "asset/texture/dog/dog_back.xpm", &(sl->tex_dog[1][0]));
-	load_img(sl, "asset/texture/dog/dog_back_walk1.xpm", &(sl->tex_dog[1][1]));
-	load_img(sl, "asset/texture/dog/dog_back.xpm", &(sl->tex_dog[1][2]));
-	load_img(sl, "asset/texture/dog/dog_back_walk2.xpm", &(sl->tex_dog[1][3]));
-	load_img(sl, "asset/texture/dog/dog_right.xpm", &(sl->tex_dog[2][0]));
-	load_img(sl, "asset/texture/dog/dog_right_walk1.xpm", &(sl->tex_dog[2][1]));
-	load_img(sl, "asset/texture/dog/dog_right.xpm", &(sl->tex_dog[2][2]));
-	load_img(sl, "asset/texture/dog/dog_right_walk2.xpm", &(sl->tex_dog[2][3]));
-	load_img(sl, "asset/texture/dog/dog_left.xpm", &(sl->tex_dog[3][0]));
-	load_img(sl, "asset/texture/dog/dog_left_walk1.xpm", &(sl->tex_dog[3][1]));
-	load_img(sl, "asset/texture/dog/dog_left.xpm", &(sl->tex_dog[3][2]));
-	load_img(sl, "asset/texture/dog/dog_left_walk2.xpm", &(sl->tex_dog[3][3]));
-	load_img(sl, "asset/texture/dog/dog_lay.xpm", &(sl->tex_dog[4][0]));
+	load_img(sl, "asset/texture/cat/cat_down_1.xpm", &(sl->tex_dog[0][0]));
+	load_img(sl, "asset/texture/cat/cat_down_walk_1.xpm", &(sl->tex_dog[0][1]));
+	load_img(sl, "asset/texture/cat/cat_down_2.xpm", &(sl->tex_dog[0][2]));
+	load_img(sl, "asset/texture/cat/cat_down_walk_2.xpm", &(sl->tex_dog[0][3]));
+	load_img(sl, "asset/texture/cat/cat_up_1.xpm", &(sl->tex_dog[1][0]));
+	load_img(sl, "asset/texture/cat/cat_up_walk_1.xpm", &(sl->tex_dog[1][1]));
+	load_img(sl, "asset/texture/cat/cat_up_2.xpm", &(sl->tex_dog[1][2]));
+	load_img(sl, "asset/texture/cat/cat_up_walk_2.xpm", &(sl->tex_dog[1][3]));
+	load_img(sl, "asset/texture/cat/cat_right_1.xpm", &(sl->tex_dog[2][0]));
+	load_img(sl, "asset/texture/cat/cat_right_walk_1.xpm", &(sl->tex_dog[2][1]));
+	load_img(sl, "asset/texture/cat/cat_right_2.xpm", &(sl->tex_dog[2][2]));
+	load_img(sl, "asset/texture/cat/cat_right_walk_2.xpm", &(sl->tex_dog[2][3]));
+	load_img(sl, "asset/texture/cat/cat_left_1.xpm", &(sl->tex_dog[3][0]));
+	load_img(sl, "asset/texture/cat/cat_left_walk_1.xpm", &(sl->tex_dog[3][1]));
+	load_img(sl, "asset/texture/cat/cat_left_2.xpm", &(sl->tex_dog[3][2]));
+	load_img(sl, "asset/texture/cat/cat_left_walk_2.xpm", &(sl->tex_dog[3][3]));
+	load_img(sl, "asset/texture/cat/cat_sleep.xpm", &(sl->tex_dog[4][0]));
+	load_img(sl, "asset/texture/cat/cat_heart_1.xpm", &(sl->tex_dog[4][1]));
+	load_img(sl, "asset/texture/cat/cat_heart_2.xpm", &(sl->tex_dog[4][2]));
+	load_img(sl, "asset/texture/cat/cat_heart_3.xpm", &(sl->tex_dog[4][3]));
 }
 
 static void	load_wolf_img(t_data *sl)

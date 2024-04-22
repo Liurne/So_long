@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:37:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/27 18:42:15 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/17 10:55:37 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int		error(t_data *sl, char *msg);
 
 /* -----parsing----- */
 void	complete_border(t_map *map, int x, int y);
+void	pars_lake(t_map *map, char *tmp_map);
 void	dog_alloc(t_data *sl);
 int		is_still(char *map);
 int		load_map(t_data *sl, char *path);

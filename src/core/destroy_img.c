@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   destroy_img.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 14:25:14 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/27 16:30:49 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/21 20:50:41 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static void	destroy_img_pl(t_data *sl)
 	destroy_img(sl, &(sl->tex_pl[4][0]));
 	destroy_img(sl, &(sl->tex_pl[4][1]));
 	destroy_img(sl, &(sl->tex_pl[4][2]));
+	destroy_img(sl, &(sl->tex_pl[4][3]));
 }
 
 static void	destroy_img_dog(t_data *sl)
@@ -54,6 +55,9 @@ static void	destroy_img_dog(t_data *sl)
 	destroy_img(sl, &(sl->tex_dog[3][2]));
 	destroy_img(sl, &(sl->tex_dog[3][3]));
 	destroy_img(sl, &(sl->tex_dog[4][0]));
+	destroy_img(sl, &(sl->tex_dog[4][1]));
+	destroy_img(sl, &(sl->tex_dog[4][2]));
+	destroy_img(sl, &(sl->tex_dog[4][3]));
 }
 
 static void	destroy_img_wolf(t_data *sl)

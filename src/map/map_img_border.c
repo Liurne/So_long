@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 03:32:30 by liurne            #+#    #+#             */
-/*   Updated: 2024/03/28 17:20:34 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/22 14:27:20 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_img	*fborder3(t_map *map, int x, int y)
 		if (get_tile(map, x + 1, y - 1) != '2' && get_tile(map, x - 1, y - 1) != '2')
 			return (&map->tex[43]);
 		else if (get_tile(map, x + 1, y - 1) != '2')
-			return (&map->tex[48]);
+			return (&map->tex[52]);
 		else if (get_tile(map, x - 1, y - 1) != '2')
 			return (&map->tex[53]);
 		else

@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 16:03:02 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/27 18:29:55 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:04:23 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static void	init_dog(t_entity *e, int x, int y, int nb)
 	e->tpos.x = 32;
 	e->tpos.y = 32;
 	e->w = 64;
-	e->h = 92;
+	e->h = 64;
 	e->delay = 50;
 }
 
