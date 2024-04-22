@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:58:03 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/04/22 15:58:43 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:45:17 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	move_dog(t_data *sl, t_entity *e, int x, int y)
 	return (0);
 }
 
-static void dog_pet_animation(t_data *sl, t_entity *pl, t_entity *dog)
+static void	dog_pet_animation(t_data *sl, t_entity *pl, t_entity *dog)
 {
 	static int	delay;
 	static int	animation;
@@ -106,7 +106,8 @@ void	dog_manager(t_data *sl, t_entity *e)
 		if (e->delay > 100)
 		{
 			e->delay = 0;
-			r += (sl->pl.pos.x / 128 + sl->pl.pos.y / 128 + e->pos.x / 128 + e->pos.y / 128 + e->id);
+			r += (sl->pl.pos.x / 128 + sl->pl.pos.y / 128 + e->pos.x
+					/ 128 + e->pos.y / 128 + e->id);
 			if (!(r % 3))
 			{
 				e->inmove = 0;
@@ -118,13 +119,9 @@ void	dog_manager(t_data *sl, t_entity *e)
 		}
 		dog_action(sl, e, e->delay);
 	}
+	else if (entity_collision(&(sl->pl), e))
+		dog_pet(sl, &sl->pl, e);
 	else
-	{
-		if (entity_collision(&(sl->pl), e))
-			dog_pet(sl, &sl->pl, e);
-		else
-			e->animation = 0;
-	}
-		
+		e->animation = 0;
 	e->delay++;
 }

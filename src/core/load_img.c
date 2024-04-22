@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:36:17 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/04/22 14:21:39 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:48:38 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,22 @@
 static void	load_pl_img(t_data *sl)
 {
 	load_img(sl, "asset/texture/player/pl_front.xpm", &(sl->tex_pl[0][0]));
-	load_img(sl, "asset/texture/player/pl_front_walk1.xpm", &(sl->tex_pl[0][1]));
+	load_img(sl,
+		"asset/texture/player/pl_front_walk1.xpm", &(sl->tex_pl[0][1]));
 	load_img(sl, "asset/texture/player/pl_front.xpm", &(sl->tex_pl[0][2]));
-	load_img(sl, "asset/texture/player/pl_front_walk2.xpm", &(sl->tex_pl[0][3]));
+	load_img(sl,
+		"asset/texture/player/pl_front_walk2.xpm", &(sl->tex_pl[0][3]));
 	load_img(sl, "asset/texture/player/pl_back.xpm", &(sl->tex_pl[1][0]));
-	load_img(sl, "asset/texture/player/pl_back_walk1.xpm", &(sl->tex_pl[1][1]));
+	load_img(sl,
+		"asset/texture/player/pl_back_walk1.xpm", &(sl->tex_pl[1][1]));
 	load_img(sl, "asset/texture/player/pl_back.xpm", &(sl->tex_pl[1][2]));
 	load_img(sl, "asset/texture/player/pl_back_walk2.xpm", &(sl->tex_pl[1][3]));
 	load_img(sl, "asset/texture/player/pl_right.xpm", &(sl->tex_pl[2][0]));
-	load_img(sl, "asset/texture/player/pl_right_walk1.xpm", &(sl->tex_pl[2][1]));
+	load_img(sl,
+		"asset/texture/player/pl_right_walk1.xpm", &(sl->tex_pl[2][1]));
 	load_img(sl, "asset/texture/player/pl_right.xpm", &(sl->tex_pl[2][2]));
-	load_img(sl, "asset/texture/player/pl_right_walk2.xpm", &(sl->tex_pl[2][3]));
+	load_img(sl,
+		"asset/texture/player/pl_right_walk2.xpm", &(sl->tex_pl[2][3]));
 	load_img(sl, "asset/texture/player/pl_left.xpm", &(sl->tex_pl[3][0]));
 	load_img(sl, "asset/texture/player/pl_left_walk1.xpm", &(sl->tex_pl[3][1]));
 	load_img(sl, "asset/texture/player/pl_left.xpm", &(sl->tex_pl[3][2]));
@@ -47,9 +52,11 @@ static void	load_dog_img(t_data *sl)
 	load_img(sl, "asset/texture/cat/cat_up_2.xpm", &(sl->tex_dog[1][2]));
 	load_img(sl, "asset/texture/cat/cat_up_walk_2.xpm", &(sl->tex_dog[1][3]));
 	load_img(sl, "asset/texture/cat/cat_right_1.xpm", &(sl->tex_dog[2][0]));
-	load_img(sl, "asset/texture/cat/cat_right_walk_1.xpm", &(sl->tex_dog[2][1]));
+	load_img(sl,
+		"asset/texture/cat/cat_right_walk_1.xpm", &(sl->tex_dog[2][1]));
 	load_img(sl, "asset/texture/cat/cat_right_2.xpm", &(sl->tex_dog[2][2]));
-	load_img(sl, "asset/texture/cat/cat_right_walk_2.xpm", &(sl->tex_dog[2][3]));
+	load_img(sl,
+		"asset/texture/cat/cat_right_walk_2.xpm", &(sl->tex_dog[2][3]));
 	load_img(sl, "asset/texture/cat/cat_left_1.xpm", &(sl->tex_dog[3][0]));
 	load_img(sl, "asset/texture/cat/cat_left_walk_1.xpm", &(sl->tex_dog[3][1]));
 	load_img(sl, "asset/texture/cat/cat_left_2.xpm", &(sl->tex_dog[3][2]));

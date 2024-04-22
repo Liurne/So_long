@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 15:23:48 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/04/17 18:15:13 by liurne           ###   ########.fr       */
+/*   Updated: 2024/04/22 16:49:56 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	complete_lake(t_map *map, char *tmp_map, int x, int y)
 {
 	if (x < 0 || y < 0 || x > map->w - 1 || y > map->h - 1)
 		return ;
-	if (tmp_map[(y * (map->w + 1)) + x] == '1' || tmp_map[(y * (map->w + 1)) + x] == '0')
+	if (tmp_map[(y * (map->w + 1)) + x] == '1'
+		|| tmp_map[(y * (map->w + 1)) + x] == '0')
 	{
 		tmp_map[(y * (map->w + 1)) + x] = '.';
 		set_tile(map, x, y, '2');
@@ -75,7 +76,7 @@ void	dog_alloc(t_data *sl)
 			if (get_tile(&sl->map, x, y) == 'C')
 				sl->nb_entities++;
 	}
-	sl->nb_dogs_active =sl->nb_entities;
+	sl->nb_dogs_active = sl->nb_entities;
 	sl->dogs = ft_calloc(sl->nb_entities, sizeof(t_entity));
 	if (!sl->dogs)
 		error(sl, ERR_MAL);

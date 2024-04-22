@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bad.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:33:33 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/04/21 20:52:38 by liurne           ###   ########.fr       */
+/*   Updated: 2024/04/22 16:39:50 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ static void	bad_action(t_data *sl, t_entity *e)
 	if (entity_collision(&sl->pl, e) && sl->pl.active)
 	{
 		sl->pl.active = 0;
-		e->inmove = 0;
 		e->dir = 4;
 		e->animation = 1;
 		sl->pl.dir = 4;

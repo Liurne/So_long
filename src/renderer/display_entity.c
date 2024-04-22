@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:15:17 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/04/22 15:33:44 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:52:19 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	draw_entity(t_data *sl, t_entity *e)
 	int	x;
 	int	y;
 	int	x_e;
-	int y_e;
+	int	y_e;
 
 	x_e = e->pos.x + sl->map.pos.x;
 	x = -1;
@@ -57,10 +57,14 @@ void	draw_entity(t_data *sl, t_entity *e)
 	{
 		y = -1;
 		y_e = e->pos.y + sl->map.pos.y;
-		while (x_e > 0 && x_e < sl->win.w && y++ < wich_texture(sl, e)->img_h - 1)
+		while (x_e > 0 && x_e < sl->win.w
+			&& y++ < wich_texture(sl, e)->img_h - 1)
 		{
-			if (get_pixel(wich_texture(sl, e), x, y) >> 24 == 0 && x_e > 0 && x_e < sl->win.w && y_e > 0 && y_e < sl->win.h)
-				put_pixel(&(sl->win.renderer),x_e, y_e, transparence(get_pixel(wich_texture(sl, e), x, y), sl->col_sky, sl->night));
+			if (get_pixel(wich_texture(sl, e), x, y) >> 24 == 0
+				&& x_e > 0 && x_e < sl->win.w && y_e > 0 && y_e < sl->win.h)
+				put_pixel(&(sl->win.renderer), x_e, y_e,
+					transparence(get_pixel(wich_texture(sl, e), x, y),
+						sl->col_sky, sl->night));
 			y_e++;
 		}
 		x_e++;

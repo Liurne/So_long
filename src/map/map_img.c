@@ -6,13 +6,13 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 03:08:41 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/03/27 18:43:44 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:53:15 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_img*	which_tile(t_map *map, int x, int y)
+t_img	*which_tile(t_map *map, int x, int y)
 {
 	if (get_tile(map, x, y) == '0')
 	{
@@ -40,7 +40,6 @@ void	reload_tile_img(t_map *map, int x, int y)
 	t_rect	src;
 	t_rect	dst;
 
-	
 	ft_setrect(&src, ft_vec(0, 0), 32, 32);
 	ft_setrect(&dst, ft_vec(x * 128, y * 128), 128, 128);
 	put_img_to_img(&map->img, which_tile(map, x, y), &src, &dst);
@@ -61,7 +60,8 @@ int	map_to_img(t_data *sl)
 		while (pos.y < sl->map.h)
 		{
 			ft_setrect(&dst, ft_vec(pos.x * 128, pos.y * 128), 128, 128);
-			put_img_to_img(&sl->map.img, which_tile(&sl->map, pos.x, pos.y), &src, &dst);
+			put_img_to_img(&sl->map.img,
+				which_tile(&sl->map, pos.x, pos.y), &src, &dst);
 			pos.y++;
 		}
 		pos.x++;

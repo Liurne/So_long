@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:09:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/04/22 16:04:32 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:59:31 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ typedef struct s_vec
 typedef struct s_rect
 {
 	t_vec	pos;
-	int	w;
-	int	h;
+	int		w;
+	int		h;
 }	t_rect;
 
 typedef enum e_status
@@ -121,10 +121,10 @@ typedef struct s_data
 	t_keyboard	keys;
 	t_map		map;
 	t_status	game_status;
-	int		nb_tile;
-	int		nb_entities;
-	int		nb_dogs;
-	int		nb_dogs_active;
+	int			nb_tile;
+	int			nb_entities;
+	int			nb_dogs;
+	int			nb_dogs_active;
 	t_entity	pl;
 	t_entity	bad;
 	t_entity	duck;

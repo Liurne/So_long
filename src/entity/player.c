@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:38:04 by liurne            #+#    #+#             */
-/*   Updated: 2024/03/25 02:04:43 by liurne           ###   ########.fr       */
+/*   Updated: 2024/04/22 16:14:33 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,8 @@ void	player_manager(t_data *sl)
 		move_player(sl, 11, 0, 2);
 	if (!sl->keys.up && !sl->keys.down && !sl->keys.left
 		&& !sl->keys.right)
+	{
 		sl->pl.inmove = 0;
+		sl->pl.animation = 0;
+	}
 }

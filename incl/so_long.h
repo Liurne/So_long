@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:37:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/04/17 10:55:37 by liurne           ###   ########.fr       */
+/*   Updated: 2024/04/22 16:59:49 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		set_tile(t_map *map, int x, int y, char c);
 void	put_pixelmap(t_map *m, int x, int y, int img);
 int		map_to_img(t_data *sl);
 void	reload_tile_img(t_map *map, int x, int y);
-t_img*	which_border(t_map *map, int x, int y);
+t_img	*which_border(t_map *map, int x, int y);
 int		how_many_border(t_map *map, int x, int y);
 int		how_many_fborder(t_map *map, int x, int y);
 

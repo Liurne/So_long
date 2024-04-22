@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   process.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:29:51 by liurne            #+#    #+#             */
-/*   Updated: 2024/04/21 20:51:49 by liurne           ###   ########.fr       */
+/*   Updated: 2024/04/22 16:35:37 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	update_night(t_data *sl)
 {
 	if (sl->night < 70)
 		sl->night = (int)(((((float)sl->pl.nb_mv
-						/ (float)(sl->nb_tile)) * 4) * 0.2) * 100);
+							/ (float)(sl->nb_tile)) * 4) * 0.2) * 100);
 	if (sl->night >= 70 && !sl->bad.active)
 	{
 		ft_putstr_fd("The big bad wolf is...\nCOMMING!!!!!\n", 1);
@@ -34,7 +34,6 @@ void	bad_end(t_data *sl)
 		sl->bad.animation = 2;
 		sl->time = 0;
 	}
-	//sl->col_sky = transparence(C_NIGHT, C_DEAD, 50);
 	sl->time++;
 }
 
