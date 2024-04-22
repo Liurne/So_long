@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 14:26:10 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/04/22 16:58:40 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:07:26 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,5 @@ void	load_map_img(t_data *sl)
 	map_base_img(sl);
 	map_border_img_1(sl);
 	map_border_img_2(sl);
+	map_border_img_3(sl);
 }

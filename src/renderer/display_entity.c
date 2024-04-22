@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:15:17 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/04/22 16:52:19 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:09:41 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ int	find_index(t_entity **entities, int start, int end, int min)
 {
 	if (start > end)
 		return (min);
-	if (entities[start]->pos.y < entities[min]->pos.y)
+	if (entities[start]->pos.y + entities[start]->tpos.y + entities[start]->h
+		< entities[min]->pos.y + entities[min]->tpos.y + entities[min]->h)
 		return (find_index(entities, start + 1, end, start));
 	else
 		return (find_index(entities, start + 1, end, min));

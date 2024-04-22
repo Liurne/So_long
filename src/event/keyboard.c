@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:45:37 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/04/22 16:14:07 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:23:16 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,11 @@ int	key_release(int keycode, t_data *sl)
 		sl->keys.left = 0;
 	if (keycode == 100 || keycode == 65363)
 		sl->keys.right = 0;
+	if (!sl->keys.up && !sl->keys.down && !sl->keys.left
+		&& !sl->keys.right)
+	{
+		sl->pl.inmove = 0;
+		sl->pl.animation = 0;
+	}
 	return (keycode);
 }
