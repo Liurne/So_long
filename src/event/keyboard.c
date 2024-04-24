@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyboard.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:45:37 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/04/22 17:23:16 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/24 00:39:53 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	reset_move(t_data *sl)
 	sl->keys.up = 0;
 	sl->keys.left = 0;
 	sl->keys.right = 0;
+	sl->pl.inmove = 0;
+	sl->pl.animation = 0;
 }
 
 void	key_press_op(int keycode, t_data *sl)
@@ -57,11 +59,5 @@ int	key_release(int keycode, t_data *sl)
 		sl->keys.left = 0;
 	if (keycode == 100 || keycode == 65363)
 		sl->keys.right = 0;
-	if (!sl->keys.up && !sl->keys.down && !sl->keys.left
-		&& !sl->keys.right)
-	{
-		sl->pl.inmove = 0;
-		sl->pl.animation = 0;
-	}
 	return (keycode);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dog.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:58:03 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/04/22 17:28:27 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/24 00:31:23 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,15 @@ static void	dog_pet_animation(t_entity *pl, t_entity *dog)
 	if (delay > 8 || delay < 0)
 	{
 		delay = 0;
-		printf("pl animation: %d inmove:%d\n", pl->animation, pl->inmove);
 		if (!pl->inmove)
 		{
-			pl->dir = 4;
-			pl->animation = 1 - pl->animation;
+			if (dog->pos.y + dog->tpos.y + dog->h < pl->pos.y + pl->tpos.y + pl->h)
+				pl->dir = 1;
+			else
+				pl->dir = 0;
+			if (pl->animation < 4)
+				pl->animation = 4;
+			pl->animation = 4 + (1 - (pl->animation - 4));
 		}
 		if (dog->animation == 1 || !dog->animation)
 			animation = 1;
@@ -63,13 +67,13 @@ static void	dog_pet(t_data *sl, t_entity *pl, t_entity *e)
 		e->inmove = 0;
 		e->dir = 4;
 		e->animation = 0;
-		pl->dir = 4;
-		pl->animation = 0;
+		if (!sl->is_night)
+			reset_move(sl);
+		pl->dir = 1;
+		pl->animation = 4;
 		ft_setvec(&e->pos, (e->pos.x + pl->pos.x) * 0.5, \
 			(e->pos.y + pl->pos.y) * 0.5);
 		ft_setvec(&pl->pos, e->pos.x + 1, e->pos.y + 1);
-		if (!sl->is_night)
-			reset_move(sl);
 		if (!sl->nb_dogs_active && get_tile(&sl->map, sl->map.end.x, \
 			sl->map.end.y) != 'F')
 		{

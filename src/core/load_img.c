@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_img.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:36:17 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/04/22 16:48:38 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/23 23:22:03 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,27 @@
 
 static void	load_pl_img(t_data *sl)
 {
-	load_img(sl, "asset/texture/player/pl_front.xpm", &(sl->tex_pl[0][0]));
-	load_img(sl,
-		"asset/texture/player/pl_front_walk1.xpm", &(sl->tex_pl[0][1]));
-	load_img(sl, "asset/texture/player/pl_front.xpm", &(sl->tex_pl[0][2]));
-	load_img(sl,
-		"asset/texture/player/pl_front_walk2.xpm", &(sl->tex_pl[0][3]));
-	load_img(sl, "asset/texture/player/pl_back.xpm", &(sl->tex_pl[1][0]));
-	load_img(sl,
-		"asset/texture/player/pl_back_walk1.xpm", &(sl->tex_pl[1][1]));
-	load_img(sl, "asset/texture/player/pl_back.xpm", &(sl->tex_pl[1][2]));
-	load_img(sl, "asset/texture/player/pl_back_walk2.xpm", &(sl->tex_pl[1][3]));
-	load_img(sl, "asset/texture/player/pl_right.xpm", &(sl->tex_pl[2][0]));
-	load_img(sl,
-		"asset/texture/player/pl_right_walk1.xpm", &(sl->tex_pl[2][1]));
-	load_img(sl, "asset/texture/player/pl_right.xpm", &(sl->tex_pl[2][2]));
-	load_img(sl,
-		"asset/texture/player/pl_right_walk2.xpm", &(sl->tex_pl[2][3]));
-	load_img(sl, "asset/texture/player/pl_left.xpm", &(sl->tex_pl[3][0]));
-	load_img(sl, "asset/texture/player/pl_left_walk1.xpm", &(sl->tex_pl[3][1]));
-	load_img(sl, "asset/texture/player/pl_left.xpm", &(sl->tex_pl[3][2]));
-	load_img(sl, "asset/texture/player/pl_left_walk2.xpm", &(sl->tex_pl[3][3]));
-	load_img(sl, "asset/texture/player/pl_pet_1.xpm", &(sl->tex_pl[4][0]));
-	load_img(sl, "asset/texture/player/pl_pet_2.xpm", &(sl->tex_pl[4][1]));
-	load_img(sl, "asset/texture/player/pl_front.xpm", &(sl->tex_pl[4][2]));
+	load_img(sl, "asset/texture/player/pl_d.xpm", &(sl->tex_pl[0][0]));
+	load_img(sl, "asset/texture/player/pl_walk_d_1.xpm", &(sl->tex_pl[0][1]));
+	load_img(sl, "asset/texture/player/pl_d.xpm", &(sl->tex_pl[0][2]));
+	load_img(sl, "asset/texture/player/pl_walk_d_2.xpm", &(sl->tex_pl[0][3]));
+	load_img(sl, "asset/texture/player/pl_pet_d_1.xpm", &(sl->tex_pl[0][4]));
+	load_img(sl, "asset/texture/player/pl_pet_d_2.xpm", &(sl->tex_pl[0][5]));
+	load_img(sl, "asset/texture/player/pl_u.xpm", &(sl->tex_pl[1][0]));
+	load_img(sl, "asset/texture/player/pl_walk_u_1.xpm", &(sl->tex_pl[1][1]));
+	load_img(sl, "asset/texture/player/pl_u.xpm", &(sl->tex_pl[1][2]));
+	load_img(sl, "asset/texture/player/pl_walk_u_2.xpm", &(sl->tex_pl[1][3]));
+	load_img(sl, "asset/texture/player/pl_pet_u_1.xpm", &(sl->tex_pl[1][4]));
+	load_img(sl, "asset/texture/player/pl_pet_u_2.xpm", &(sl->tex_pl[1][5]));
+	load_img(sl, "asset/texture/player/pl_r.xpm", &(sl->tex_pl[2][0]));
+	load_img(sl, "asset/texture/player/pl_walk_r_1.xpm", &(sl->tex_pl[2][1]));
+	load_img(sl, "asset/texture/player/pl_r.xpm", &(sl->tex_pl[2][2]));
+	load_img(sl, "asset/texture/player/pl_walk_r_2.xpm", &(sl->tex_pl[2][3]));
+	load_img(sl, "asset/texture/player/pl_l.xpm", &(sl->tex_pl[3][0]));
+	load_img(sl, "asset/texture/player/pl_walk_l_1.xpm", &(sl->tex_pl[3][1]));
+	load_img(sl, "asset/texture/player/pl_l.xpm", &(sl->tex_pl[3][2]));
+	load_img(sl, "asset/texture/player/pl_walk_l_2.xpm", &(sl->tex_pl[3][3]));
+	load_img(sl, "asset/texture/player/pl_d.xpm", &(sl->tex_pl[4][2]));
 	load_img(sl, "asset/texture/player/pl_killed.xpm", &(sl->tex_pl[4][3]));
 }
 

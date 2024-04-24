@@ -3,19 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:38:04 by liurne            #+#    #+#             */
-/*   Updated: 2024/04/22 17:22:38 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/04/24 00:40:44 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+static void	pl_start_move(t_entity *pl, int dir)
+{
+	pl->dir = dir;
+	pl->inmove = 1;
+	if (pl->animation > 3)
+		pl->animation = 1;
+}
+
 int	move_player(t_data *sl, int x, int y, int dir)
 {
-	sl->pl.dir = dir;
-	sl->pl.inmove = 1;
+	pl_start_move(&sl->pl, dir);
 	if (!map_collision(sl, &(sl->pl), x, y) && (x || y))
 	{
 		sl->pl.dist += 10;
@@ -50,4 +57,11 @@ void	player_manager(t_data *sl)
 		move_player(sl, -11, 0, 3);
 	if (sl->keys.right)
 		move_player(sl, 11, 0, 2);
+	if (!sl->keys.up && !sl->keys.down && !sl->keys.left
+		&& !sl->keys.right)
+	{
+		sl->pl.inmove = 0;
+		if (sl->pl.animation < 4)
+			sl->pl.animation = 0;
+	}
 }
