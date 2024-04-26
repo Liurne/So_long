@@ -6,7 +6,7 @@
 /*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:34:36 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/04/17 18:19:55 by liurne           ###   ########.fr       */
+/*   Updated: 2024/04/26 10:50:43 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,13 @@ int	verif_map_size(t_data *sl)
 	if (!sl->map.map[tmp])
 		return (0);
 	sl->map.w = tmp;
+	if (sl->map.w > 100)
+		return(0);
 	if ((ft_strlen(sl->map.map) + 1) % (tmp + 1))
 		return (0);
 	sl->map.h = (ft_strlen(sl->map.map) + 1) / (tmp + 1);
+	if (sl->map.h > 100)
+		return(0);
 	return (1);
 }
 
@@ -110,6 +114,7 @@ int	verif_map(t_data *sl)
 		return (0);
 	if (!verif_map_size(sl) || !verif_count(sl) || !parcour_map(sl))
 		return (free(tmp), 0);
+	sl->map.map_hitbox = ft_calloc((sl->map.w * 2) * (sl->map.h * 2), sizeof(char));
 	recu_finder(sl, tmp, sl->map.start.x, sl->map.start.y);
 	if (is_still(tmp))
 		return (free(tmp), 0);

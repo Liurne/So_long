@@ -6,7 +6,7 @@
 /*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:09:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/04/23 22:50:11 by liurne           ###   ########.fr       */
+/*   Updated: 2024/04/26 10:48:13 by liurne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ typedef enum e_status
 typedef struct s_map
 {
 	char	*map;
+	char	*map_hitbox;
 	int		w;
 	int		h;
 	t_vec	pos;
