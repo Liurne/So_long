@@ -6,11 +6,41 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:33:33 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/04/22 16:39:50 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/05/06 18:33:09 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static void	bad_jump(t_data *sl, t_entity *bad, t_vec jump)
+{
+	
+
+	
+}
+
+static int	new_move_bad(t_data *sl, t_entity *bad, int x, int y)
+{
+	static unsigned int	delay_col;
+	static t_vec pos_jump;
+
+	if (delay_col > 50)
+	{
+		if (delay_col == 50)
+			set_vec(&pos_jump, sl->pl.pos.x, sl->pl.pos.y);
+		delay_col++;
+		if (!bad_jump(sl, bad, &pos_jump))
+			delay_col = 0;
+	}
+	else if (!map_collision(sl, bad, x, y))
+	{
+		bad->pos.x += x;
+		bad->pos.y += y;
+	}
+	else
+		delay_col++;
+	return (0);
+}
 
 static int	bad_in_wall(t_data *sl, t_entity *e, int x, int y)
 {
