@@ -6,7 +6,7 @@
 #    By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 17:47:33 by jcoquard          #+#    #+#              #
-#    Updated: 2024/04/23 16:18:08 by jcoquard         ###   ########.fr        #
+#    Updated: 2024/05/16 16:22:57 by jcoquard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,11 @@ LIBMLX		= libmlx.a
 
 # ---- Directories ---- #
 
+HEADER	= incls/
+
 DIR_OBJS		= .objs/
 
-DIR_SRCS		= src/
+DIR_SRCS		= srcs/
 
 DIR_UTILS		= ${DIR_SRCS}utils/
 
@@ -34,17 +36,15 @@ DIR_CORE		= ${DIR_SRCS}core/
 
 DIR_RENDERER	= ${DIR_SRCS}renderer/
 
-DIR_EVENT		= ${DIR_SRCS}event/
+DIR_RUN			= ${DIR_SRCS}run/
 
 DIR_PARS		= ${DIR_SRCS}parsing/
 
 DIR_MAP			= ${DIR_SRCS}map/
 
-DIR_ENTITY			= ${DIR_SRCS}entity/
+DIR_ENTITIES	= ${DIR_SRCS}entities/
 
 DIR_MLX			= minilibx/
-
-DIR_LST			= ${DIR_UTILS}list/
 
 MLXLIB_A 		= $(DIR_MLX)$(LIBMLX)
 
@@ -66,8 +66,6 @@ END			= \033[0m
 
 # ---- Files ---- #
 
-HEADER	= incl/
-
 SRCS	=	$(DIR_SRCS)main.c \
 			$(DIR_UTILS)ft_bzero.c \
 			$(DIR_UTILS)ft_calloc.c \
@@ -87,23 +85,25 @@ SRCS	=	$(DIR_SRCS)main.c \
 			$(DIR_CORE)load_map_img.c \
 			$(DIR_CORE)destroy_img.c \
 			$(DIR_PARS)load_map.c \
-			$(DIR_PARS)parsing_utils.c \
 			$(DIR_PARS)parsing.c \
+			$(DIR_PARS)parsing_utils.c \
+			$(DIR_PARS)parsing_entities.c \
+			$(DIR_PARS)parsing_map_border.c \
+			$(DIR_PARS)parsing_map_img.c \
+			$(DIR_PARS)parsing_map_border_img.c \
 			$(DIR_RENDERER)display.c \
-			$(DIR_RENDERER)display_entity.c \
+			$(DIR_RENDERER)display_entities.c \
 			$(DIR_RENDERER)display_utils.c \
-			$(DIR_EVENT)keyboard.c \
-			$(DIR_EVENT)process.c \
-			$(DIR_ENTITY)entity.c \
-			$(DIR_ENTITY)init_entity.c \
-			$(DIR_ENTITY)player.c \
-			$(DIR_ENTITY)dog.c \
-			$(DIR_ENTITY)bad.c \
+			$(DIR_RUN)keyboard.c \
+			$(DIR_RUN)process.c \
+			$(DIR_ENTITIES)entities.c \
+			$(DIR_ENTITIES)entities_constructor.c \
+			$(DIR_ENTITIES)player.c \
+			$(DIR_ENTITIES)cat.c \
+			$(DIR_ENTITIES)bad.c \
 			$(DIR_MAP)map.c \
-			$(DIR_MAP)map_img.c \
-			$(DIR_MAP)map_img_border.c \
-			$(DIR_MAP)map_border_utils.c \
-
+			$(DIR_MAP)map_border.c \
+			$(DIR_MAP)map_hitbox.c \
 
 OBJS = ${addprefix ${DIR_OBJS},${SRCS:.c=.o}}
 
