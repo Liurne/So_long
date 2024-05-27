@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 11:26:33 by liurne            #+#    #+#             */
-/*   Updated: 2024/04/26 11:38:54 by liurne           ###   ########.fr       */
+/*   Updated: 2024/05/27 18:03:30 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	main(int ac, char **av)
 	load_all_image(&so_long);
 	map_to_img(&so_long);
 	so_long.game_status = RUN;
-	mlx_hook(so_long.win.win, 2, 1L << 0, key_press, &so_long);
-	mlx_hook(so_long.win.win, 3, 1L << 1, key_release, &so_long);
+	//mlx_hook(so_long.win.win, 2, 1L << 0, key_press, &so_long);
+	//mlx_hook(so_long.win.win, 3, 1L << 1, key_release, &so_long);
 	mlx_hook(so_long.win.win, 17, 1L << 0, close_window, &so_long);
 	mlx_loop_hook(so_long.win.mlx, process, &so_long);
 	mlx_loop(so_long.win.mlx);
