@@ -6,7 +6,7 @@
 #    By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 17:47:33 by jcoquard          #+#    #+#              #
-#    Updated: 2024/05/16 16:22:57 by jcoquard         ###   ########.fr        #
+#    Updated: 2024/05/28 19:12:47 by jcoquard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,6 +94,7 @@ SRCS	=	$(DIR_SRCS)main.c \
 			$(DIR_RENDERER)display.c \
 			$(DIR_RENDERER)display_entities.c \
 			$(DIR_RENDERER)display_utils.c \
+			$(DIR_RENDERER)animation.c \
 			$(DIR_RUN)keyboard.c \
 			$(DIR_RUN)process.c \
 			$(DIR_ENTITIES)entities.c \

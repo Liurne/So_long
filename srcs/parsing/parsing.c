@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 17:32:41 by liurne            #+#    #+#             */
-/*   Updated: 2024/05/15 16:21:55 by liurne           ###   ########.fr       */
+/*   Updated: 2024/05/28 18:31:28 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ int	verif_map_size(t_data *sl)
 	if ((ft_strlen(sl->map.map) + 1) % (tmp + 1))
 		return (error(sl, ERR_SQUARE));
 	sl->map.h = (ft_strlen(sl->map.map) + 1) / (tmp + 1);
+	if (sl->map.w * 128 < sl->win.w)
+		sl->map.pos.x = (sl->win.w * 0.5) - (sl->map.w * 128) * 0.5;
+	if (sl->map.h * 128 < sl->win.h)
+		sl->map.pos.y = (sl->win.h * 0.5) - (sl->map.h * 128) * 0.5;
 	return (0);
 }
 
@@ -118,10 +122,6 @@ int	verif_map(t_data *sl)
 	if (is_still(tmp))
 		return (free(tmp), 0);
 	complete_border(&sl->map, tmp, 0, 0);
-	printf("map_tmp:\n%s\n", tmp);
-	printf("map:\n%s\n", sl->map.map);
 	pars_lake(&sl->map, tmp);
-	printf("map_tmp:\n%s\n", tmp);
-	printf("map_tmp:\n%s\n", sl->map.map);
 	return (free(tmp), 1);
 }

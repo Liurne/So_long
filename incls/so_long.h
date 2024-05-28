@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:37:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/04/28 18:34:53 by liurne           ###   ########.fr       */
+/*   Updated: 2024/05/28 19:11:55 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	display_entity(t_data *sl, t_entity **mobs);
 void	display_dog(t_data *sl, t_entity *e);
 void	animation(t_data *sl);
 void	render_display(t_data *sl);
+void	animation_start(t_data *sl);
 
 /* -----run----- */
 int		process(t_data *sl);
