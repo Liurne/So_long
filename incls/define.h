@@ -76,7 +76,9 @@ typedef enum e_status
 {
 	RUN,
 	WIN,
-	LOST
+	LOST,
+	FIRST_ANIMATION,
+	SECOND_ANIMATION
 }	t_status;
 
 typedef enum e_error
