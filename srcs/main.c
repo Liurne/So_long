@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 11:26:33 by liurne            #+#    #+#             */
-/*   Updated: 2024/05/28 17:36:29 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/06/25 14:28:08 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 		error(&so_long, ERR_MAP);
 	load_all_image(&so_long);
 	map_to_img(&so_long);
-	so_long.game_status = FIRST_ANIMATION;
+	so_long.game_status = ANIMATION;
 	mlx_hook(so_long.win.win, 2, 1L << 0, key_press, &so_long);
 	mlx_hook(so_long.win.win, 3, 1L << 1, key_release, &so_long);
 	mlx_hook(so_long.win.win, 17, 1L << 0, close_window, &so_long);

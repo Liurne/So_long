@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:09:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/05/15 16:20:48 by liurne           ###   ########.fr       */
+/*   Updated: 2024/06/27 14:28:11 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ typedef enum e_status
 	RUN,
 	WIN,
 	LOST,
-	FIRST_ANIMATION,
-	SECOND_ANIMATION
+	ANIMATION,
+	STARTING
 }	t_status;
 
 typedef enum e_error
@@ -127,6 +127,7 @@ typedef struct s_entity
 	int		inmove;
 	size_t	nb_mv;
 	size_t	dist;
+	size_t	delay_pet;
 }	t_entity;
 
 typedef struct s_keyboard

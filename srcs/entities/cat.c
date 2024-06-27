@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cat.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:53:34 by liurne            #+#    #+#             */
-/*   Updated: 2024/04/28 18:00:24 by liurne           ###   ########.fr       */
+/*   Updated: 2024/06/27 14:40:56 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ static void	cat_pet(t_data *sl, t_entity *pl, t_entity *e)
 			ft_putstr_fd("The house is open!!\n", 1);
 		}
 	}
+	e->delay_pet = pl->nb_mv + sl->nb_tile;
 	cat_pet_animation(pl, e);
 }
 
@@ -127,6 +128,10 @@ void	cat_manager(t_data *sl, t_entity *e)
 	else if (entity_collision(&(sl->pl), e))
 		cat_pet(sl, &sl->pl, e);
 	else
+	{
 		e->frame = 0;
+		if (e->delay_pet < sl->pl.nb_mv)
+			e->active = 1;
+	}
 	e->delay++;
 }

@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:37:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/05/29 16:02:17 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/06/25 14:26:46 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	pars_entity(t_data *sl, char tile, int x, int y);
 int		is_still(char *map);
 int		load_map(t_data *sl, char *path);
 int		verif_map(t_data *sl);
+void	map_start(t_data *sl, t_map *map);
 
 /* -----map----- */
 char	get_tile(t_map *map, int x, int y);

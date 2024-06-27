@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_entities.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 17:42:34 by liurne            #+#    #+#             */
-/*   Updated: 2024/04/26 23:24:54 by liurne           ###   ########.fr       */
+/*   Updated: 2024/06/27 14:42:43 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,10 @@ void	pars_entity(t_data *sl, char tile, int x, int y)
 		ft_setvec(&sl->map.start, x, y);
 		init_pl(&sl->pl, x, y);
 		update_cam(&sl->win, &sl->pl, &sl->map);
-		set_tile(&sl->map, x, y, '0');
-	}
-	if (tile == 'E')
-	{
-		ft_setvec(&sl->map.end, x, y);
 		init_bad(&sl->bad, x, y);
 	}
+	if (tile == 'E')
+		ft_setvec(&sl->map.end, x, y);
 	if (tile == 'C')
 	{
 		sl->nb_cats++;

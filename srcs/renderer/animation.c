@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 18:01:26 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/05/29 17:35:37 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/06/25 15:33:33 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	animation_arriving(t_data *sl, t_img *renderer)
 		sl->time += 4;
 	else
 	{
-		sl->game_status = RUN;
+		sl->game_status = STARTING;
 		sl->time = 0;
 	}
 }
