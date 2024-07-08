@@ -6,7 +6,7 @@
 #    By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 17:47:33 by jcoquard          #+#    #+#              #
-#    Updated: 2024/05/28 19:12:47 by jcoquard         ###   ########.fr        #
+#    Updated: 2024/06/27 14:17:20 by jcoquard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,7 +116,9 @@ DEPS_FLAGS	= -MMD -MP
 
 CC			= cc
 
-CFLAGS		= ${DEPS_FLAGS} -Wall -Wextra -Werror -g3 -fsanitize=address #-O2
+CFLAGS		= ${DEPS_FLAGS} -Wall -Wextra -Werror -g3 -fsanitize=address -O2
+
+MLXFLAGS	= -L${DIR_MLX} -lmlx_Linux -L/usr/lib -Iminilibx -lXext -lX11 -lm -lz
 
 # ---- Commands ---- #
 
@@ -138,7 +140,7 @@ $(MLXLIB_A): force
 # ---- Variables Rules ---- #
 
 ${NAME}	:	${OBJS}
-			@ ${CC} ${CFLAGS} -o ${NAME} ${OBJS} -L${DIR_MLX} -lmlx_Linux -L/usr/lib -Iminilibx -lXext -lX11 -lm -lz && echo "${GREEN}\n* ${NAME} compilation completed !!!\n${END}" || ${MAKE} sus
+			@ ${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${MLXFLAGS} && echo "${GREEN}\n* ${NAME} compilation completed !!!\n${END}" || ${MAKE} sus
 
 # ---- Compiled Rules ---- #
 
@@ -158,8 +160,6 @@ clean			:
 
 fclean			:	clean fclean_lib
 					@ ${RM} ${NAME} && echo "${RED} * fclean: ${NAME} is cleared...${END}"
-
-bonus			:	all
 
 re				:	fclean
 					$(MAKE)
@@ -185,4 +185,4 @@ sus:
 	@echo "$(IRED)         ░▀▀▀░▀▀▀░▀▀▀         ${END}"
 
 .SILENT:
-.PHONY: all clean fclean fclean_lib re sus dir run
+.PHONY: all clean fclean fclean_lib re sus

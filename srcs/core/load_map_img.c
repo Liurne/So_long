@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_map_img.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 14:26:10 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/04/26 22:43:58 by liurne           ###   ########.fr       */
+/*   Updated: 2024/06/25 14:10:59 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,8 @@ static void	map_base_img(t_data *sl)
 	load_img(sl, "assets/texture/map/end_closed.xpm", &(sl->map.tex[6]));
 	load_img(sl, "assets/texture/map/end_open.xpm", &(sl->map.tex[7]));
 	load_img(sl, "assets/texture/map/collectible.xpm", &(sl->map.tex[8]));
+	load_img(sl, "assets/texture/map/collectible_cat.xpm", &(sl->map.tex[55]));
+	load_img(sl, "assets/texture/map/player_spawn.xpm", &(sl->map.tex[56]));
 }
 
 void	load_map_img(t_data *sl)

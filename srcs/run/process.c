@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 22:35:48 by liurne            #+#    #+#             */
-/*   Updated: 2024/05/29 17:12:17 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/06/25 15:50:07 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,11 @@ void	bad_end(t_data *sl)
 int	process(t_data *sl)
 {
 	int		i;
-	if (sl->game_status == FIRST_ANIMATION)
+
+	if (sl->game_status == ANIMATION)
 		animation_arriving(sl, &sl->win.renderer);
+	if (sl->game_status == STARTING)
+		map_start(sl, &sl->map);
 	if (sl->game_status == RUN)
 	{
 		if (sl->pl.active)
