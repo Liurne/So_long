@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 14:26:10 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/06/25 14:10:59 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/10/15 18:42:25 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ static void	map_border_img_1(t_data *sl)
 	load_img(sl, "assets/texture/map/border_corner_rd.xpm", &(sl->map.tex[21]));
 	load_img(sl, "assets/texture/map/border_corner_ru.xpm", &(sl->map.tex[22]));
 	load_img(sl, "assets/texture/map/border_empty.xpm", &(sl->map.tex[23]));
-	load_img(sl, "assets/texture/map/border_cross_dlur.xpm", &(sl->map.tex[24]));
-	load_img(sl, "assets/texture/map/border_cross_drul.xpm", &(sl->map.tex[25]));
+	load_img(sl, "assets/texture/map/border_cross_dlur.xpm",
+		&(sl->map.tex[24]));
+	load_img(sl, "assets/texture/map/border_cross_drul.xpm",
+		&(sl->map.tex[25]));
 	load_img(sl,
 		"assets/texture/map/border_river_cross_dl.xpm", &(sl->map.tex[26]));
 }
@@ -94,6 +96,7 @@ static void	map_border_img_3(t_data *sl)
 static void	map_base_img(t_data *sl)
 {
 	load_img(sl, "assets/texture/map/border_empty.xpm", &(sl->map.tex[0]));
+	sl->col_ocean = get_pixel(&sl->map.tex[0], 0, 0);
 	load_img(sl, "assets/texture/map/grass_empty.xpm", &(sl->map.tex[1]));
 	load_img(sl, "assets/texture/map/grass_alt.xpm", &(sl->map.tex[2]));
 	load_img(sl, "assets/texture/map/grass_alt_2.xpm", &(sl->map.tex[3]));

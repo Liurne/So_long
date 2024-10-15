@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_entities.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liurne <liurne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:15:17 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/04/28 17:59:33 by liurne           ###   ########.fr       */
+/*   Updated: 2024/10/15 18:39:27 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	display_hitbox(t_data *sl, t_entity *e)
 					e->pos.y + y + sl->map.pos.y, 0xFFFFFF00);
 		}
 	}
-	
 }
 
 t_img	*wich_texture(t_data *sl, t_entity *e)
@@ -62,42 +61,31 @@ t_img	*wich_texture(t_data *sl, t_entity *e)
 
 void	draw_entity(t_data *sl, t_entity *e)
 {
-	int	x;
-	int	y;
-	int	x_e;
-	int	y_e;
+	t_vec	inc;
+	t_vec	pos;
+	t_img	*sprite;
+	int		pixel;
 
-	x_e = e->pos.x + sl->map.pos.x;
-	x = -1;
-	while (x++ < wich_texture(sl, e)->img_w -1)
+	sprite = wich_texture(sl, e);
+	pos.x = e->pos.x + sl->map.pos.x;
+	inc.x = -1;
+	while (inc.x++ < sprite->img_w -1)
 	{
-		y = -1;
-		y_e = e->pos.y + sl->map.pos.y;
-		while (x_e > 0 && x_e < sl->win.w
-			&& y++ < wich_texture(sl, e)->img_h - 1)
+		inc.y = -1;
+		pos.y = e->pos.y + sl->map.pos.y;
+		while (pos.x > 0 && pos.x < sl->win.w && inc.y++ < sprite->img_h - 1)
 		{
-			if (get_pixel(wich_texture(sl, e), x, y) >> 24 == 0
-				&& x_e > 0 && x_e < sl->win.w && y_e > 0 && y_e < sl->win.h)
-				put_pixel(&(sl->win.renderer), x_e, y_e,
-					transparence(get_pixel(wich_texture(sl, e), x, y),
-						sl->col_sky, sl->night));
-			y_e++;
+			pixel = get_pixel(sprite, inc.x, inc.y);
+			if (pixel >> 24 == 0 && pos.x > 0 && pos.x < sl->win.w
+				&& pos.y > 0 && pos.y < sl->win.h)
+				put_pixel(&(sl->win.renderer), pos.x, pos.y,
+					transparence(pixel, sl->col_sky, sl->night));
+			pos.y++;
 		}
-		x_e++;
+		pos.x++;
 	}
 	if (sl->keys.show_hitbox)
 		display_hitbox(sl, e);
-}
-
-int	find_index(t_entity **entities, int start, int end, int min)
-{
-	if (start > end)
-		return (min);
-	if (entities[start]->pos.y + entities[start]->hitbox.pos.y + entities[start]->hitbox.h
-		< entities[min]->pos.y + entities[min]->hitbox.pos.y + entities[min]->hitbox.h)
-		return (find_index(entities, start + 1, end, start));
-	else
-		return (find_index(entities, start + 1, end, min));
 }
 
 void	display_entity(t_data *sl, t_entity **mobs)

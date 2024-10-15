@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:13:30 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/05/28 19:04:10 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/10/15 17:57:40 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	render_display(t_data *sl)
 {
 	int	x;
 	int	y;
+	int	pixel;
 
 	x = -1;
 	while (x++ < sl->win.w)
@@ -49,14 +50,14 @@ void	render_display(t_data *sl)
 		y = -1;
 		while (y++ < sl->win.h)
 		{
-			if (get_pixel(&(sl->map.img), x - sl->map.pos.x, y - sl->map.pos.y))
-				put_pixel(&(sl->win.renderer), x, y, transparence(get_pixel(
-							&(sl->map.img), x - sl->map.pos.x, y - sl->map.pos.y),
-						sl->col_sky, sl->night));
+			pixel = get_pixel(&(sl->map.img),
+				x - sl->map.pos.x, y - sl->map.pos.y);
+			if (pixel)
+				put_pixel(&(sl->win.renderer), x, y,
+					transparence(pixel, sl->col_sky, sl->night));
 			else
-				put_pixel(&(sl->win.renderer), x, y, transparence(get_pixel(
-						&sl->map.tex[0], 0, 0), sl->col_sky, sl->night));
-			
+				put_pixel(&(sl->win.renderer), x, y,
+					transparence(sl->col_ocean, sl->col_sky, sl->night));
 		}
 	}
 	display_entity(sl, sl->entities);

@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 17:52:39 by liurne            #+#    #+#             */
-/*   Updated: 2024/05/28 18:27:52 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/10/15 17:58:31 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,15 @@ int	get_pixel(t_img *img, int x, int y)
 	return (((int *)img->addr)[y * (img->line_length >> 2) + x]);
 }
 
-int	transparence(int c1, int c2, int t)
+int transparence(int c1, int c2, int t)
 {
-	int		r;
-	int		g;
-	int		b;
-	float	tr;
+	float tr = t * 0.01f;
+	float tr_inv = 1.0f - tr;
+	int r = ((((c1 >> 16) & 0xFF) * tr_inv) + (((c2 >> 16) & 0xFF) * tr));
+	int g = ((((c1 >> 8) & 0xFF) * tr_inv) + (((c2 >> 8) & 0xFF) * tr));
+	int b = (((c1 & 0xFF) * tr_inv) + ((c2 & 0xFF) * tr));
 
-	tr = (float)t * 0.01;
-	r = (((c1 >> 16) & 0xFF) * (1.0 - tr) + ((c2 >> 16) & 0xFF) * tr);
-	if (r > 255)
-		r = 255;
-	g = (((c1 >> 8) & 0xFF) * (1.0 - tr) + ((c2 >> 8) & 0xFF) * tr);
-	if (g > 255)
-		g = 255;
-	b = (c1 & 0xFF) * (1.0 - tr) + ((c2 & 0xFF) * tr);
-	if (b > 255)
-		b = 255;
-	return (255 << 24 | r << 16 | g << 8 | b);
+	return (255 << 24) | (r << 16) | (g << 8) | b;
 }
 
 void	put_img_to_img(t_img *img1, t_img *img2, t_rect *src, t_rect *dst)
