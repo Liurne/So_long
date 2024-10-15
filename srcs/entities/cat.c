@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:53:34 by liurne            #+#    #+#             */
-/*   Updated: 2024/06/27 14:40:56 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/10/15 18:54:56 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,12 @@ static void	cat_pet_animation(t_entity *pl, t_entity *cat)
 		delay = 0;
 		if (!pl->inmove)
 		{
-			if (pl->pos.y + pl->hitbox.pos.y + pl->hitbox.h > cat->pos.y + cat->hitbox.pos.y + cat->hitbox.h)
+			if (pl->pos.y + pl->hitbox.pos.y + pl->hitbox.h
+				> cat->pos.y + cat->hitbox.pos.y + cat->hitbox.h)
 				pl->dir = 1;
 			else
 				pl->dir = 0;
-			if (pl->frame < 4)
-				pl->frame = 4;
-			pl->frame = 4 + (1 - (pl->frame - 4));
+			pl->frame = (4 + (1 - (pl->frame - 4))) % 8;
 		}
 		if (cat->frame == 1 || !cat->frame)
 			animation = 1;

@@ -6,7 +6,7 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:09:46 by jcoquard          #+#    #+#             */
-/*   Updated: 2024/06/27 14:28:11 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/10/15 17:52:58 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,7 @@ typedef struct s_data
 	int			is_night;
 	int			night;
 	int			col_sky;
+	int			col_ocean;
 	int			time;
 }	t_data;
 

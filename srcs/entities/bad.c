@@ -6,41 +6,11 @@
 /*   By: jcoquard <jcoquard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:54:14 by liurne            #+#    #+#             */
-/*   Updated: 2024/05/16 16:22:41 by jcoquard         ###   ########.fr       */
+/*   Updated: 2024/10/15 18:44:48 by jcoquard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-// static void	bad_jump(t_data *sl, t_entity *bad, t_vec jump)
-// {
-	
-
-	
-// }
-
-// static int	new_move_bad(t_data *sl, t_entity *bad, int x, int y)
-// {
-// 	static unsigned int	delay_col;
-// 	static t_vec pos_jump;
-
-// 	if (delay_col > 50)
-// 	{
-// 		if (delay_col == 50)
-// 			set_vec(&pos_jump, sl->pl.pos.x, sl->pl.pos.y);
-// 		delay_col++;
-// 		if (!bad_jump(sl, bad, &pos_jump))
-// 			delay_col = 0;
-// 	}
-// 	else if (!map_collision(sl, bad, x, y))
-// 	{
-// 		bad->pos.x += x;
-// 		bad->pos.y += y;
-// 	}
-// 	else
-// 		delay_col++;
-// 	return (0);
-// }
 
 static int	bad_in_wall(t_data *sl, t_entity *e, int x, int y)
 {
@@ -57,7 +27,8 @@ static int	bad_in_wall(t_data *sl, t_entity *e, int x, int y)
 		collision = 1;
 	if (get_tile(&sl->map, (next_x + e->walkbox.w) / 128, next_y / 128) != '0')
 		collision = 1;
-	if (get_tile(&sl->map, (next_x + e->walkbox.w) / 128, (next_y + e->walkbox.h) / 128) != '0')
+	if (get_tile(&sl->map, (next_x + e->walkbox.w) / 128,
+			(next_y + e->walkbox.h) / 128) != '0')
 		collision = 1;
 	return (collision);
 }
