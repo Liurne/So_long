@@ -71,9 +71,8 @@ static void	cat_pet(t_data *sl, t_entity *pl, t_entity *e)
 			reset_move(sl);
 		pl->dir = 1;
 		pl->frame = 4;
-		ft_setvec(&e->pos, (e->pos.x + pl->pos.x) * 0.5, \
-			(e->pos.y + pl->pos.y) * 0.5);
-		ft_setvec(&pl->pos, e->pos.x + 1, e->pos.y + 1);
+		//ft_setvec(&e->pos, (e->pos.x + pl->pos.x) * 0.5, \(e->pos.y + pl->pos.y) * 0.5);
+		//ft_setvec(&pl->pos, e->pos.x + 1, e->pos.y + 1);
 		if (!sl->nb_cats_active && get_tile(&sl->map, sl->map.end.x, \
 			sl->map.end.y) != 'F')
 		{
