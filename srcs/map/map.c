@@ -34,3 +34,14 @@ void	put_pixelmap(t_map *m, int x, int y, int img)
 {
 	put_pixel(&(m->img), x, y, get_pixel(&(m->tex[img]), x % 128, y % 128));
 }
+
+void	refresh_end(t_data *sl)
+{
+	if (!sl->nb_cats_active && get_tile(&sl->map, sl->map.end.x, \
+			sl->map.end.y) != 'F')
+	{
+		set_tile(&sl->map, sl->map.end.x, sl->map.end.y, 'F');
+		reload_tile_img(&sl->map, sl->map.end.x, sl->map.end.y);
+		ft_putstr_fd("The house is open!!\n", 1);
+	}
+}

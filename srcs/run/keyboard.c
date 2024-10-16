@@ -19,7 +19,6 @@ void	reset_move(t_data *sl)
 	sl->keys.left = 0;
 	sl->keys.right = 0;
 	sl->pl.inmove = 0;
-	sl->pl.frame = 0;
 }
 
 void	key_press_op(int keycode, t_data *sl)
@@ -28,13 +27,19 @@ void	key_press_op(int keycode, t_data *sl)
 		sl->keys.show_hitbox = 1 - sl->keys.show_hitbox;
 	if (keycode == 110)
 		sl->night = 70;
+	if (sl->game_status == ANIMATION && keycode == 32)
+	{
+		sl->game_status = STARTING;
+		sl->pl.active = 1;
+	}
+	printf("keycode: %d\n", keycode);
 }
 
 int	key_press(int keycode, t_data *sl)
 {
 	if (keycode == 65307)
 		close_window(sl);
-	if (sl->pl.active)
+	if (sl->pl.active && (sl->pl.delay > 25 || sl->bad.active))
 	{
 		if ((keycode == 119 || keycode == 65362) && !sl->keys.down)
 			sl->keys.up = 1;

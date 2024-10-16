@@ -84,7 +84,7 @@ void	draw_entity(t_data *sl, t_entity *e)
 		}
 		pos.x++;
 	}
-	if (sl->keys.show_hitbox)
+	if (sl->keys.show_hitbox || e->id == sl->pl.collision_entity - 1)
 		display_hitbox(sl, e);
 }
 

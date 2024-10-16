@@ -24,7 +24,6 @@ int	main(int ac, char **av)
 	load_all_image(&so_long);
 	map_to_img(&so_long);
 	so_long.game_status = ANIMATION;
-	so_long.game_status = STARTING;
 	mlx_hook(so_long.win.win, 2, 1L << 0, key_press, &so_long);
 	mlx_hook(so_long.win.win, 3, 1L << 1, key_release, &so_long);
 	mlx_hook(so_long.win.win, 17, 1L << 0, close_window, &so_long);

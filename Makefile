@@ -99,6 +99,7 @@ SRCS	=	$(DIR_SRCS)main.c \
 			$(DIR_RUN)process.c \
 			$(DIR_ENTITIES)entities.c \
 			$(DIR_ENTITIES)entities_constructor.c \
+			$(DIR_ENTITIES)algorithm.c \
 			$(DIR_ENTITIES)player.c \
 			$(DIR_ENTITIES)cat.c \
 			$(DIR_ENTITIES)bad.c \

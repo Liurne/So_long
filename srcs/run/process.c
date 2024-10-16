@@ -41,8 +41,8 @@ int	process(t_data *sl)
 {
 	int		i;
 
-	// if (sl->game_status == ANIMATION)
-	// 	animation_arriving(sl, &sl->win.renderer);
+	if (sl->game_status == ANIMATION)
+		animation_arriving(sl, &sl->win.renderer);
 	if (sl->game_status == STARTING)
 		map_start(sl, &sl->map);
 	if (sl->game_status == RUN)
@@ -54,8 +54,7 @@ int	process(t_data *sl)
 			i = -1;
 			while (++i < sl->nb_cats)
 				cat_manager(sl, &(sl->cats[i]));
-			if ((sl->pl.delay > 25 && !sl->bad.active) || sl->bad.active)
-				player_manager(sl);
+			player_manager(sl);
 			if (sl->bad.active)
 				bad_manager(sl, &(sl->bad));
 		}

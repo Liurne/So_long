@@ -12,6 +12,22 @@
 
 #include "so_long.h"
 
+void	player_pet(t_entity *pl, t_entity *cat)
+{
+	static unsigned int	delay;
+
+	if (pl->frame < 4)
+		pl->frame = 4;
+	if (!(delay % 8))
+		pl->frame = ((pl->frame - 3) % 2) + 4;
+	if (pl->pos.y + pl->hitbox.pos.y + pl->hitbox.h
+		> cat->pos.y + cat->hitbox.pos.y + cat->hitbox.h)
+		pl->dir = 1;
+	else
+		pl->dir = 0;
+	pl->collision_entity = 0;
+	delay++;
+}
 void	update_cam(t_wins *win, t_entity *pl, t_map *map)
 {
 	if (map->w * 128 > win->w)
@@ -38,7 +54,7 @@ int	player_move(t_data *sl, int x, int y, int dir)
 	if (!sl->pl.inmove)
 		sl->pl.frame = 1;
 	sl->pl.inmove = 1;
-	if (!map_collision(sl, &(sl->pl), x, y) && (x || y))
+	if (!map_collision(sl, &sl->pl, x, y) && (x || y))
 	{
 		sl->pl.dist += sl->pl.speed;
 		if (sl->pl.dist >= 128)
@@ -67,7 +83,9 @@ void	player_manager(t_data *sl)
 		&& !sl->keys.right)
 	{
 		sl->pl.inmove = 0;
-		if (sl->pl.frame < 4)
+		if (sl->pl.collision_entity)
+			player_pet(&sl->pl, &sl->cats[sl->pl.collision_entity - 1]);
+		else
 			sl->pl.frame = 0;
 	}
 }

@@ -57,6 +57,7 @@ int		set_tile(t_map *map, int x, int y, char c);
 void	put_pixelmap(t_map *m, int x, int y, int img);
 int		map_to_img(t_data *sl);
 void	reload_tile_img(t_map *map, int x, int y);
+void	refresh_end(t_data *sl);
 t_img	*which_border(t_map *map, int x, int y);
 int		how_many_border(t_map *map, int x, int y);
 int		how_many_fborder(t_map *map, int x, int y);
@@ -67,10 +68,12 @@ void	init_bad(t_entity *e, int x, int y);
 void	init_cat(t_entity *e, int x, int y, int nb);
 int		entity_collision(t_entity *e1, t_entity *e2);
 int		map_collision(t_data *sl, t_entity *e, int x, int y);
+int		move_entity(t_data *sl, t_entity *e);
+int		roaming_alg(t_data *sl, t_entity *e);
 void	update_cam(t_wins *win, t_entity *pl, t_map *map);
 void	player_manager(t_data *sl);
 int		player_move(t_data *sl, int x, int y, int dir);
-void	cat_manager(t_data *sl, t_entity *e);
+void	cat_manager(t_data *sl, t_entity *cat);
 void	bad_manager(t_data *sl, t_entity *e);
 
 /* -----renderer----- */

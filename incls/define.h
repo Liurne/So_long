@@ -125,6 +125,7 @@ typedef struct s_entity
 	int		frame;
 	int		delay;
 	int		inmove;
+	int		collision_entity;
 	size_t	nb_mv;
 	size_t	dist;
 	size_t	delay_pet;

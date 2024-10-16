@@ -48,6 +48,31 @@ static int	collision_action(t_data *sl, t_entity *e, int x, int y)
 	return (0);
 }
 
+int	move_entity(t_data *sl, t_entity *e)
+{
+	t_vec	dir;
+
+	if (e->inmove && !(e->delay % 3))
+	{
+		if (e->dir == 0)
+			ft_setvec(&dir, 0, e->speed);
+		if (e->dir == 1)
+			ft_setvec(&dir, 0, -e->speed);
+		if (e->dir == 2)
+			ft_setvec(&dir, e->speed, 0);
+		if (e->dir == 3)
+			ft_setvec(&dir, -e->speed, 0);
+		if (!map_collision(sl, e, dir.x, dir.y))
+		{
+			e->pos.x += dir.x;
+			e->pos.y += dir.y;
+		}
+		else
+			return (0);
+	}
+	return (1);
+}
+
 int	map_collision(t_data *sl, t_entity *e, int x, int y)
 {
 	int	next_x;
@@ -70,3 +95,4 @@ int	map_collision(t_data *sl, t_entity *e, int x, int y)
 				(next_y + e->walkbox.h) / 128);
 	return (collision);
 }
+
