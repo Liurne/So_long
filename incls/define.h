@@ -14,6 +14,7 @@
 # define DEFINE_H
 # include "../minilibx/mlx.h"
 # include <unistd.h>
+# include <math.h>
 # include <limits.h>
 # include <stdlib.h>
 # include <fcntl.h>

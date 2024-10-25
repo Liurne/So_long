@@ -27,6 +27,7 @@ void	*ft_calloc(size_t count, size_t size);
 char	*ft_itoa(int n);
 t_vec	ft_vec(int x, int y);
 void	ft_setvec(t_vec *vec, int x, int y);
+float	ft_getdistance(t_vec first, t_vec second);
 t_rect	ft_rect(int x, int y, int w, int h);
 void	ft_setrect(t_rect *rect, t_vec pos, int w, int h);
 
@@ -70,6 +71,7 @@ int		entity_collision(t_entity *e1, t_entity *e2);
 int		map_collision(t_data *sl, t_entity *e, int x, int y);
 int		move_entity(t_data *sl, t_entity *e);
 int		roaming_alg(t_data *sl, t_entity *e);
+void	hunter_alg(t_data *sl, t_entity *e);
 void	update_cam(t_wins *win, t_entity *pl, t_map *map);
 void	player_manager(t_data *sl);
 int		player_move(t_data *sl, int x, int y, int dir);

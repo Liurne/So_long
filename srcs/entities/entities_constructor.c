@@ -19,7 +19,7 @@ void	init_pl(t_entity *pl, int x, int y)
 	pl->active = 1;
 	pl->pos.x = x * 128;
 	pl->pos.y = y * 128;
-	pl->speed = 11;
+	pl->speed = 12;
 	pl->hitbox.pos.x = 40;
 	pl->hitbox.pos.y = 32;
 	pl->hitbox.w = 48;
@@ -38,7 +38,7 @@ void	init_bad(t_entity *e, int x, int y)
 	e->active = 0;
 	e->pos.x = x * 128;
 	e->pos.y = y * 128;
-	e->speed = 11;
+	e->speed = 8;
 	e->hitbox.pos.x = 40;
 	e->hitbox.pos.y = 32;
 	e->hitbox.w = 48;
@@ -47,6 +47,7 @@ void	init_bad(t_entity *e, int x, int y)
 	e->walkbox.pos.y = 104;
 	e->walkbox.w = 48;
 	e->walkbox.h = 23;
+	e->delay = 0;
 }
 
 void	init_cat(t_entity *e, int x, int y, int nb)

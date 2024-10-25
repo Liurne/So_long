@@ -52,6 +52,8 @@ int	move_entity(t_data *sl, t_entity *e)
 {
 	t_vec	dir;
 
+	if (!sl->pl.active)
+		return (1);
 	if (e->inmove && !(e->delay % 3))
 	{
 		if (e->dir == 0)

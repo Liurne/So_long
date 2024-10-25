@@ -26,3 +26,8 @@ void	ft_setvec(t_vec *vec, int x, int y)
 	vec->x = x;
 	vec->y = y;
 }
+
+float	ft_getdistance(t_vec first, t_vec second)
+{
+	return (sqrt(pow(first.x - second.x, 2) + pow(first.y - second.y, 2)));
+}

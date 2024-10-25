@@ -67,10 +67,8 @@ void	animation(t_data *sl)
 	i = -1;
 	while (++i < sl->nb_entities)
 	{
-		if (sl->entities[i]->inmove && sl->time >= 7)
+		if (sl->entities[i]->inmove && !(sl->time % 6))
 			sl->entities[i]->frame = (sl->entities[i]->frame + 1) % 4;
 	}
-	if (sl->time >= 7)
-		sl->time = 0;
 	++sl->time;
 }

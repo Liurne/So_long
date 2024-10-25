@@ -32,7 +32,6 @@ void	key_press_op(int keycode, t_data *sl)
 		sl->game_status = STARTING;
 		sl->pl.active = 1;
 	}
-	printf("keycode: %d\n", keycode);
 }
 
 int	key_press(int keycode, t_data *sl)
